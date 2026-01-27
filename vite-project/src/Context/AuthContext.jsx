@@ -6,11 +6,13 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const login = () => {
+    console.log("Inside Login");
     localStorage.setItem("token", "dummy-token");
     setToken("dummy-token");
   };
 
   const logout = () => {
+    console.log("Inside Logout clear");
     localStorage.removeItem("token");
     setToken(null);
   };
