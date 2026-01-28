@@ -1,21 +1,28 @@
 
 import React, { useState } from "react";
 import { deleteTask, updateTask } from "../../services/TaskService";
-
+import { EditTaskModal } from "./EditTaskModal";
+import {useTask} from '../../Context/TaskContext'
 export const TaskColumn = ({
   todoStatus=[],
   inProgressStatus=[],
   doneStatus=[]}) => {
 
+const{Ctasks,setCtasks}=useTask();
+
   // local state for edit
-  const [editingTask, setEditingTask] = useState(null);
-  const [editTitle, setEditTitle] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(null);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   /* ================= DELETE ================= */
   const handleDelete = async (id) => {
     try {
       await deleteTask(id);
-      alert("Task deleted (refresh to see changes)");
+      // console.log(Ctasks.length)
+      const remaining=Ctasks.filter((task)=>task.id!==id);
+      setCtasks(remaining);
+      // console.log(Ctasks.length)
+      // alert("Task deleted (refresh to see changes)");
     } catch (err) {
       console.error("Delete failed");
     }
@@ -23,22 +30,57 @@ export const TaskColumn = ({
 
   /* ================= EDIT ================= */
   const handleEditClick = (task) => {
-    setEditingTask(task);
-    setEditTitle(task.title);
+   setSelectedTask(task);
+  setIsModalOpen(true);
   };
 
-  const handleUpdate = async () => {
-    try {
-      await updateTask({
-        ...editingTask,
-        title: editTitle,
-      });
-      setEditingTask(null);
-      alert("Task updated (refresh to see changes)");
-    } catch (err) {
-      console.error("Update failed");
-    }
-  };
+
+//     try {
+//       await updateTask({
+//         ...editingTask,
+//         title: editTitle,
+//       });
+//       setEditingTask(null);
+//       alert("Task updated (refresh to see changes)");
+//     } catch (err) {
+//       console.error("Update failed");
+//     }
+//   };
+
+  const closeModal = () => {
+  setIsModalOpen(false);
+  setSelectedTask(null);
+};
+
+const handleSave = async (updatedData) => {
+  // console.log(selectedTask);
+  const {id}=selectedTask
+  // console.log("upadted data",updatedData);
+setCtasks((prev) =>
+      prev.map((task) =>
+        task.id === selectedTask.id
+          ? {id,...updatedData} //  merge
+          : task
+      )
+    );
+  try {
+   const updatedTask= await updateTask({
+      id: selectedTask.id,
+      ...updatedData,
+    });
+    // const remain= Ctasks.filter((task)=>task.id!==selectedTask.id);
+    // setCtasks(...remain,selectedTask.id,...updatedData)
+//  setCtasks((prev) =>
+//       prev.map((task) =>
+//         task.id === selectedTask.id ? updatedTask : task
+//       )
+//     );
+ 
+    closeModal();
+  } catch (err) {
+    console.error("Update failed");
+  }
+};
 
   /* ================= UI ================= */
   const renderTasks = (tasks) =>
@@ -86,16 +128,12 @@ export const TaskColumn = ({
       </div>
 
       {/* ===== EDIT MODAL ===== */}
-      {editingTask && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>Edit Task</h3>
-          <input
-            value={editTitle}
-            onChange={(e) => setEditTitle(e.target.value)}
-          />
-          <button onClick={handleUpdate}>Save</button>
-          <button onClick={() => setEditingTask(null)}>Cancel</button>
-        </div>
+      {isModalOpen && (
+        <EditTaskModal
+    task={selectedTask}
+    onClose={closeModal}
+    onSave={handleSave}
+  />
       )}
     </>
   );

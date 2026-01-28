@@ -5,6 +5,8 @@ import ProtectedRoute from "../Components/ProtectedRoute";
 import { Navigate } from "react-router-dom";
 import {TaskRender} from "../features/tasks/TaskRender";
 import  {TaskColumn}  from "../features/tasks/TaskColumn";
+import { TaskProvider } from "../Context/TaskContext";
+import { TaskSearch } from "../features/tasks/TaskSearch";
 const AppRoutes = () => (
   <Routes>
     <Route path="*" element={<Navigate to= "/dashboard"/>}/>
@@ -13,9 +15,12 @@ const AppRoutes = () => (
       path="/dashboard"
       element={
         <ProtectedRoute>
+<TaskProvider>
+  <TaskSearch/>
           <TaskBoard />
           <TaskRender/>
           <TaskColumn/>
+</TaskProvider>
         </ProtectedRoute>
       }
     />

@@ -126,44 +126,40 @@
 import { useEffect, useState } from "react";
  import {
   fetchTask,
-   
  } from "../../services/TaskService";
 import {TaskColumn} from './TaskColumn'
+import { useTask } from "../../Context/TaskContext";
+
 
 export function TaskRender(){
+
+  const {Ctasks,setCtasks} =useTask();
     const[todoStatus,setTodoStatus]=useState([]);
     const[inProgressStatus,setInProgressStatus]=useState([]);
     const[doneStatus,setDoneStatus]=useState([]);
-useEffect(()=>{
-
-    const fetch= async()=>{
-const Tasks=await fetchTask();
-
-      const todo = [];
-      const inProgress = [];
-      const done = [];
-
-      Tasks.forEach((task) => {
-        if (task.status === "todo") {
-          todo.push(task);
-        } else if (task.status === "in-progress") {
-          inProgress.push(task);
-        } else if (task.status === "done") {
-          done.push(task);
-        }
-      });
-
-setTodoStatus(todo);
-      setInProgressStatus(inProgress);
-      setDoneStatus(done);
 
 
-console.log("todoStatus",todoStatus);
-console.log("inProgressStatus",inProgressStatus);
-console.log("doneStatus",doneStatus);
-    }
-fetch();
-},[])
+ useEffect(() => {
+    if (!Ctasks.length) return;
+
+    const todo = [];
+    const inProgress = [];
+    const done = [];
+
+    Ctasks.forEach((task) => {
+ if (!task || !task.status) return;
+
+      if (task.status === "todo") todo.push(task);
+      else if (task.status === "in-progress") inProgress.push(task);
+      else if (task.status === "done") done.push(task);
+    });
+console.log("tasks",Ctasks);
+    setTodoStatus(todo);
+    setInProgressStatus(inProgress);
+    setDoneStatus(done);
+  }, [Ctasks]);
+
+
 return(
 <TaskColumn todoStatus={todoStatus} inProgressStatus={inProgressStatus} doneStatus={doneStatus}/>
 )

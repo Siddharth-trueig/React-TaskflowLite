@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchTask = async () => {
   const tasks = await axios.get("http://localhost:3000/task");
-  console.log(tasks.data);
+  // console.log(tasks.data);
   return tasks.data;
 };
 
@@ -30,6 +30,7 @@ export const updateTask = async ({
     assignee,
   });
   console.log(updateTask);
+  return updateTask;
 };
 export const addTask = async (data) => {
   const newTask = await axios.post(`http://localhost:3000/task`, data);
@@ -37,21 +38,8 @@ export const addTask = async (data) => {
   return newTask;
 };
 
-const task = {
-  id: 2,
-  title: "Second Task",
-  priority: "High",
-  status: "Pending",
-  dueDate: "23",
-  assignee: "Naman Sir",
-};
 
-// export const updateTaskStatus = async (id, status) => {
-//   return axios.patch(`http://localhost:3000/task/${id}`, { status });
-// };
 
 
 fetchTask();
-// deleteTask();
-//    fetchTask();
-// addTask(task);
+
