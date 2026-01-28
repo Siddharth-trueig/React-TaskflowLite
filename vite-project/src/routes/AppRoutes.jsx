@@ -8,6 +8,7 @@ import  {TaskColumn}  from "../features/tasks/TaskColumn";
 import { TaskProvider } from "../Context/TaskContext";
 import { TaskSearch } from "../features/tasks/TaskSearch";
 import { FilterPanel } from "../features/tasks/FilterPanel";
+import { Logout } from "../features/tasks/Logout";
 const AppRoutes = () => (
   <Routes>
     <Route path="*" element={<Navigate to= "/dashboard"/>}/>
@@ -16,11 +17,12 @@ const AppRoutes = () => (
       path="/dashboard"
       element={
         <ProtectedRoute>
+          <Logout/>
 <TaskProvider>
   <TaskSearch/> 
   <FilterPanel/>
-          <TaskBoard />
-          <TaskRender/>
+  <TaskBoard />
+  <TaskRender/>
           {/* <TaskColumn/> */}
 </TaskProvider>
         </ProtectedRoute>

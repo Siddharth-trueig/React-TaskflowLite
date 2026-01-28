@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useCreateTask } from "../../hooks/useCreateTask";
 import { useTask } from "../../Context/TaskContext";
-import {useAuth} from '../../Context/AuthContext'
 import { useNavigate } from "react-router-dom";
+
+
+
 export const TaskBoard = () => {
-  const {logout}=useAuth();
+  
   const { createTask, loading, error } = useCreateTask();
+  const [showModal, setShowModal] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { Ctasks, setCtasks } = useTask();
   const [formData, setFormData] = useState({
@@ -19,11 +22,7 @@ export const TaskBoard = () => {
 const navigate=useNavigate()
   const [tasks, setTasks] = useState([]);
 
-  const Logout=()=>{
-logout();
-navigate('/login')
-console.log("Inside Logout After Clear");
-  }
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -48,86 +47,135 @@ console.log("Inside Logout After Clear");
       assignee: "",
     });
     // console.log("Ctasks",Ctasks);
+    setShowModal(false);
   };
 
   return (
-    <div>
-      <button onClick={Logout}>Logout</button>
-      <form onSubmit={handleSubmit}>
-        <span>
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            required
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Enter task title"
-          />
-        </span>
+  <>
+    <button onClick={() => setShowModal(true)}>
+      + Add Task
+    </button>
 
-        <span>
-          <label htmlFor="status">Status</label>
-          <select
-            id="status"
-            name="status"
-            required
-            value={formData.status}
-            onChange={handleChange}
-          >
-            <option value="todo">To Do</option>
-            <option value="in-progress">In Progress</option>
-            <option value="done">Done</option>
-          </select>
-        </span>
+    {showModal && (
+      <div style={overlayStyle}>
+        <div style={modalStyle}>
+          <h3>Add New Task</h3>
 
-        <span>
-          <label htmlFor="priority">Priority</label>
-          <select
-            id="priority"
-            required
-            name="priority"
-            value={formData.priority}
-            onChange={handleChange}
-          >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </span>
+          <form onSubmit={handleSubmit}>
+            <span>
+              <label htmlFor="title">Title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                required
+                value={formData.title}
+                onChange={handleChange}
+              />
+            </span>
 
-        <div>
-          <label htmlFor="dueDate">Due Date</label>
-          <input
-            id="dueDate"
-            name="dueDate"
-            type="date"
-            required
-            value={formData.dueDate}
-            onChange={handleChange}
-          />
+            <span>
+              <label htmlFor="status">Status</label>
+              <select
+                id="status"
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+              >
+                <option value="todo">To Do</option>
+                <option value="in-progress">In Progress</option>
+                <option value="done">Done</option>
+              </select>
+            </span>
+
+            <span>
+              <label htmlFor="priority">Priority</label>
+              <select
+                name="priority"
+                value={formData.priority}
+                onChange={handleChange}
+              >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </span>
+
+            {/* <div>
+              <label htmlFor="dueDate">Due Date</label>
+              <input
+                type="date"
+                name="dueDate"
+                value={formData.dueDate}
+                onChange={handleChange}
+              />
+            </div> */}
+
+             <div>
+    <label htmlFor="dueDate">Due Date</label>
+    <input
+      id="dueDate"
+      name="dueDate"
+      type="date"
+      required
+      value={formData.dueDate}
+      onChange={handleChange}
+      min={new Date().toISOString().split("T")[0]}
+    />
+    <small style={{ color: "#666" }}>
+      Deadline must be today or a future date
+    </small>
+  </div>
+
+            <div>
+              <label htmlFor="assignee">Assignee</label>
+              <input
+                type="text"
+                name="assignee"
+                value={formData.assignee}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button type="submit" disabled={loading}>
+                {loading ? "Saving..." : "Add Task"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setShowModal(false)}
+              >
+                Cancel
+              </button>
+            </div>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
+          </form>
         </div>
+      </div>
+    )}
+  </>
+)
+}
+// TaskBoard component code above...
 
-        <div>
-          <label htmlFor="assignee">Assignee</label>
-          <input
-            id="assignee"
-            name="assignee"
-            type="text"
-            required
-            value={formData.assignee}
-            onChange={handleChange}
-            placeholder="Assign to"
-          />
-        </div>
+const overlayStyle = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+ background: "rgba(0, 0, 0, 0.4)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: 1000,
+};
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Saving..." : "Add Task"}
-        </button>
-
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </form>
-    </div>
-  );
+const modalStyle = {
+  background: "#d8ce0fd0",
+  padding: "20px",
+  borderRadius: "8px",
+  width: "400px",
 };
