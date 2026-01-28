@@ -7,6 +7,7 @@ export const TaskProvider = ({ children }) => {
   const [Loading, setLoading] = useState(false);
   const[searchval,setSearchval]=useState("");
   const [priorityFilter, setPriorityFilter] = useState("all");
+  const[activeCard,setActiveCard]=useState(null);
 //  async function render(){
 //       const data = await fetchTask();
 //       setCtasks(data);
@@ -42,7 +43,7 @@ export const TaskProvider = ({ children }) => {
 
 
   return (
-    <TaskContext.Provider value={{ Ctasks, setCtasks, Loading, setLoading,searchval,setSearchval,priorityFilter,setPriorityFilter }}>
+    <TaskContext.Provider value={{ Ctasks, setCtasks, Loading, setLoading,searchval,setSearchval,priorityFilter,setPriorityFilter,activeCard,setActiveCard }}>
       {children}
     </TaskContext.Provider>
   );
