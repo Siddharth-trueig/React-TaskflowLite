@@ -129,11 +129,11 @@ import { useEffect, useState } from "react";
  } from "../../services/TaskService";
 import {TaskColumn} from './TaskColumn'
 import { useTask } from "../../Context/TaskContext";
-
+import {useFilteredTasks} from '../../hooks/useFilter'
 
 export function TaskRender(){
-
-  const {Ctasks,setCtasks} =useTask();
+ const filteredTasks = useFilteredTasks();
+  const {Ctasks,setCtasks,searchval} =useTask();
     const[todoStatus,setTodoStatus]=useState([]);
     const[inProgressStatus,setInProgressStatus]=useState([]);
     const[doneStatus,setDoneStatus]=useState([]);
@@ -145,8 +145,16 @@ export function TaskRender(){
     const todo = [];
     const inProgress = [];
     const done = [];
+    // console.log("search value",searchval);
+    // console.log("Ctasks ",Ctasks);
+  //  const tasks=searchval??Ctasks;
+  // const tasksToRender = searchval
+  // ? Ctasks.filter(task =>
+  //     task.title.toLowerCase().includes(searchval.toLowerCase())
+  //   )
+  // : Ctasks;
 
-    Ctasks.forEach((task) => {
+    filteredTasks.forEach((task) => {
  if (!task || !task.status) return;
 
       if (task.status === "todo") todo.push(task);
@@ -157,7 +165,7 @@ console.log("tasks",Ctasks);
     setTodoStatus(todo);
     setInProgressStatus(inProgress);
     setDoneStatus(done);
-  }, [Ctasks]);
+  }, [filteredTasks]);
 
 
 return(

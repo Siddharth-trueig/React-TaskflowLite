@@ -5,7 +5,8 @@ import { fetchTask } from "../services/TaskService";
 export const TaskProvider = ({ children }) => {
   const [Ctasks, setCtasks] = useState([]);
   const [Loading, setLoading] = useState(false);
-  const[searchval,setSearchval]=useState(null);
+  const[searchval,setSearchval]=useState("");
+  const [priorityFilter, setPriorityFilter] = useState("all");
 //  async function render(){
 //       const data = await fetchTask();
 //       setCtasks(data);
@@ -41,7 +42,7 @@ export const TaskProvider = ({ children }) => {
 
 
   return (
-    <TaskContext.Provider value={{ Ctasks, setCtasks, Loading, setLoading }}>
+    <TaskContext.Provider value={{ Ctasks, setCtasks, Loading, setLoading,searchval,setSearchval,priorityFilter,setPriorityFilter }}>
       {children}
     </TaskContext.Provider>
   );
