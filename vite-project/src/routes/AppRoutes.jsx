@@ -9,25 +9,30 @@ import { TaskProvider } from "../Context/TaskContext";
 import { TaskSearch } from "../features/tasks/TaskSearch";
 import { FilterPanel } from "../features/tasks/FilterPanel";
 import { Logout } from "../features/tasks/Logout";
+import {AuthLoader} from '../Components/authLoader'
 const AppRoutes = () => (
   <Routes>
-    <Route path="*" element={<Navigate to= "/dashboard"/>}/>
+    
     <Route path="/login" element={<Login />} />
-    <Route
-      path="/dashboard"
-      element={
-        <ProtectedRoute>
+    <Route element={ <AuthLoader/> }>
+<Route path="/dashboard"  element={
+          <>
           <Logout/>
 <TaskProvider>
+   
   <TaskSearch/> 
   <FilterPanel/>
   <TaskBoard />
   <TaskRender/>
           {/* <TaskColumn/> */}
 </TaskProvider>
-        </ProtectedRoute>
-      }
-    />
+
+</>
+}/>
+</Route>
+       {/* </authLoader> */}
+     <Route path="*" element={<Navigate to= "/dashboard"/>}/>
+   
   </Routes>
 );
 
