@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "../features/auth/Login"
-import {TaskBoard} from "../features/tasks/TaskBoard";
-import ProtectedRoute from "../Components/ProtectedRoute";
+import Login from "../../Components/features/auth/Login"
+import {TaskBoard} from "../../Components/features/tasks/TaskBoard";
+import ProtectedRoute from "../../Components/Protect/ProtectedRoute";
 import { Navigate } from "react-router-dom";
-import {TaskRender} from "../features/tasks/TaskRender";
-import  {TaskColumn}  from "../features/tasks/TaskColumn";
+import {TaskRender} from "../../Components/features/tasks/TaskRender";
+import  {TaskColumn}  from "../../Components/features/tasks/TaskColumn";
 import { TaskProvider } from "../Context/TaskContext";
-import { TaskSearch } from "../features/tasks/TaskSearch";
-import { FilterPanel } from "../features/tasks/FilterPanel";
-import { Logout } from "../features/tasks/Logout";
+import { TaskSearch } from "../../Components/features/tasks/TaskSearch";
+import { FilterPanel } from "../../Components/features/tasks/FilterPanel";
+import { Logout } from "../../Components/features/auth/Logout";
 const AppRoutes = () => (
   <Routes>
     <Route path="*" element={<Navigate to= "/dashboard"/>}/>

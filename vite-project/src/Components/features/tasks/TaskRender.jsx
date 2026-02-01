@@ -126,10 +126,10 @@
 import { useEffect, useState } from "react";
  import {
   fetchTask,
- } from "../../services/TaskService";
+ } from "../../../services/TaskService";
 import {TaskColumn} from './TaskColumn'
-import { useTask } from "../../Context/TaskContext";
-import {useFilteredTasks} from '../../hooks/useFilter'
+import { useTask } from "../../../Common/Context/TaskContext";
+import {useFilteredTasks} from '../../../Common/hooks/useFilter'
 
 export function TaskRender(){
  const filteredTasks = useFilteredTasks();

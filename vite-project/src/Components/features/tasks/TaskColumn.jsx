@@ -1,8 +1,8 @@
 
 import React, { useState } from "react";
-import { deleteTask, updateTask } from "../../services/TaskService";
+import { deleteTask, updateTask } from "../../../services/TaskService";
 import { EditTaskModal } from "./EditTaskModal";
-import {useTask} from '../../Context/TaskContext'
+import {useTask} from '../../../Common/Context/TaskContext'
 import { DropArea } from "./DropArea";
 import { useDispatch,useSelector } from "react-redux";
 import { deleteTodo, updateTodo } from "../../Common/Redux/todoSlice";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useCreateTask } from "../../hooks/useCreateTask";
-import { useTask } from "../../Context/TaskContext";
+import { useCreateTask } from "../../../Common/hooks/useCreateTask";
+import { useTask } from "../../../Common/Context/TaskContext";
 import { useNavigate } from "react-router-dom";
 import { addTodo } from "../../Common/Redux/todoSlice";
 import {useSelector,useDispatch} from 'react-redux'

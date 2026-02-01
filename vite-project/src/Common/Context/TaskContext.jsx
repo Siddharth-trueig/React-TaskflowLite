@@ -1,6 +1,6 @@
 import { useContext, createContext, useEffect, useState } from "react";
 const TaskContext = createContext();
-import { fetchTask } from "../services/TaskService";
+import { fetchTask } from "../../services/TaskService";
 
 export const TaskProvider = ({ children }) => {
   const [Ctasks, setCtasks] = useState([]);

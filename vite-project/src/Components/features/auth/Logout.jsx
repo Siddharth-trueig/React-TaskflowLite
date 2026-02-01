@@ -1,5 +1,5 @@
 import React from 'react'
-import {useAuth} from '../../Context/AuthContext'
+import {useAuth} from '../../../Common/Context/AuthContext'
 import { redirect } from 'react-router-dom';
 export const Logout = () => {
     const {logout}=useAuth();

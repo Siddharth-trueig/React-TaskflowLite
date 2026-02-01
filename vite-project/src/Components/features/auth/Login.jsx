@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../../../Common/Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {

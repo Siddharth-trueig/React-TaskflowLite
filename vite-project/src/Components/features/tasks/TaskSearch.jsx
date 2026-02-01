@@ -20,8 +20,8 @@
 //   )
 // }
 import { useState, useEffect } from "react";
-import { useDebounce } from "../../hooks/useDebounce";
-import { useTask } from "../../Context/TaskContext";
+import { useDebounce } from "../../../Common/hooks/useDebounce";
+import { useTask } from "../../../Common/Context/TaskContext";
 
 export const TaskSearch = () => {
   const [search, setSearch] = useState("");
