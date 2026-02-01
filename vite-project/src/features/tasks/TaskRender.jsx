@@ -140,7 +140,7 @@ export function TaskRender(){
 
 
  useEffect(() => {
-    if (!Ctasks.length) return;
+    if (!filteredTasks.length) return;
 
     const todo = [];
     const inProgress = [];

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useCreateTask } from "../../hooks/useCreateTask";
 import { useTask } from "../../Context/TaskContext";
 import { useNavigate } from "react-router-dom";
-
-
+import { addTodo } from "../../Common/Redux/todoSlice";
+import {useSelector,useDispatch} from 'react-redux'
 
 export const TaskBoard = () => {
+  const dispatch=useDispatch();
   
   const { createTask, loading, error } = useCreateTask();
   const [showModal, setShowModal] = useState(false);
@@ -33,12 +34,13 @@ const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newTask = await createTask(formData);
-    if (!newTask) return;
+    // const newTask = await createTask(formData);
+    // if (!newTask) return;
 
-    setTasks([...tasks, newTask]);
-    setCtasks((prevTasks) => [...prevTasks, newTask]);
-    
+    // setTasks([...tasks, newTask]);
+    // setCtasks((prevTasks) => [...prevTasks, newTask]);
+    dispatch(addTodo(formData));
+
     setFormData({
       title: "",
       status: "todo",

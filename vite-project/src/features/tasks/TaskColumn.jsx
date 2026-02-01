@@ -4,11 +4,13 @@ import { deleteTask, updateTask } from "../../services/TaskService";
 import { EditTaskModal } from "./EditTaskModal";
 import {useTask} from '../../Context/TaskContext'
 import { DropArea } from "./DropArea";
+import { useDispatch,useSelector } from "react-redux";
+import { deleteTodo, updateTodo } from "../../Common/Redux/todoSlice";
 export const TaskColumn = ({
   todoStatus=[],
   inProgressStatus=[],
   doneStatus=[]}) => {
-
+const dispatch=useDispatch();
 const{Ctasks,setCtasks,activeCard,setActiveCard}=useTask();
 
   // local state for edit
@@ -53,22 +55,23 @@ const{Ctasks,setCtasks,activeCard,setActiveCard}=useTask();
   setSelectedTask(null);
 };
 
-const handleSave = async (updatedData) => {
+const handleSave = (updatedData) => {
+  // const newData={selectedTask.id,updatedData}
   // console.log(selectedTask);
-  const {id}=selectedTask
+  // const {id}=selectedTask
   // console.log("upadted data",updatedData);
-setCtasks((prev) =>
-      prev.map((task) =>
-        task.id === selectedTask.id
-          ? {id,...updatedData} //  merge
-          : task
-      )
-    );
-  try {
-   const updatedTask= await updateTask({
-      id: selectedTask.id,
-      ...updatedData,
-    });
+// setCtasks((prev) =>
+//       prev.map((task) =>
+//         task.id === selectedTask.id
+//           ? {id,...updatedData} //  merge
+//           : task
+//       )
+//     );
+  // try {
+  //  const updatedTask= await updateTask({
+  //     id: selectedTask.id,
+  //     ...updatedData,
+  //   });
     // const remain= Ctasks.filter((task)=>task.id!==selectedTask.id);
     // setCtasks(...remain,selectedTask.id,...updatedData)
 //  setCtasks((prev) =>
@@ -76,11 +79,12 @@ setCtasks((prev) =>
 //         task.id === selectedTask.id ? updatedTask : task
 //       )
 //     );
- 
+if (!selectedTask?.id) return;
+console.log("selected task id",selectedTask.id,"updatedData",updatedData);
+
+ dispatch(updateTodo({id:selectedTask.id,updatedData}));
     closeModal();
-  } catch (err) {
-    console.error("Update failed");
-  }
+  
 };
 
 const onDrop=async(status,position)=>{
@@ -152,12 +156,13 @@ setActiveCard(null);
        <p>Status:{task.status}</p>
        <p>Due Time:{task.dueDate}</p>
         <button onClick={() => handleEditClick(task)}>Edit</button>
-        <button
+        {/* <button
           style={{ marginLeft: "10px" }}
           onClick={() => handleDelete(task.id)}
         >
           Delete
-        </button>
+        </button> */}
+        <button onClick={()=>dispatch(deleteTodo(task.id))}>Delete</button>
         
       </div> 
        {<DropArea onDrop={()=>onDrop(index+1)}/>}

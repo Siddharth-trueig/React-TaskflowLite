@@ -1,11 +1,23 @@
 import { useMemo } from "react";
 import { useTask } from "../Context/TaskContext";
-
+import { useSelector,useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchTodo } from "../Common/Redux/todoSlice";
 export const useFilteredTasks = () => {
+  const tasks=useSelector((state)=>{
+    console.log("state.todo is ",state.todos.todo);
+    return state.todos.todo
+  })
   const { Ctasks, searchval, priorityFilter } = useTask();
 
+   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodo()); 
+  }, [dispatch]);
+
   const filteredTasks = useMemo(() => {
-    let tasks = Ctasks;
+    // let tasks = Ctasks;
 
     // Search filter
     if (searchval){
@@ -22,7 +34,7 @@ export const useFilteredTasks = () => {
     }
 
     return tasks;
-  }, [Ctasks, searchval, priorityFilter]);
+  }, [tasks]);
 
   return filteredTasks;
 };
