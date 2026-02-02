@@ -3,15 +3,15 @@ import { useAuth } from "../../../Common/Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../../../Common/Form/Input";
 import { useModal } from "../../../Common/Context/ModalContext";
-
+import { addUser } from "../../../services/TaskService";
 const SignUp = () => {
   const { register, handleSubmit,formState: { errors } } = useForm();
   const { login } = useAuth();
  const navigate = useNavigate();
 
  const { setLoginModal,
-      setSignUpModal,}=useModal();
-  const onSubmit = (data) => {
+      setSignUpModal,setInDashboard}=useModal();
+  const onSubmit = async (data) => {
 //     console.log("submitted");
 //     login();
 // console.log("submitted");
@@ -21,17 +21,24 @@ const SignUp = () => {
             console.log("Email is already registered!");
             alert("The Email already Exist");
             return;
-        } else {
+        } 
+        else {
             const userData = {
                 name: data.UserName,
                 email: data.Email,
                 password: data.Password,
                 PhoneNumber:data.PhoneNumber
             };
-            localStorage.setItem(data.email, JSON.stringify(userData));
+                const newuser=await addUser(data);
+                console.log("newuser data details",newuser.data);
+            localStorage.setItem("Token", JSON.stringify(userData));
             console.log(data.name + " has been successfully registered");
+      
+               navigate("/dashboard");
+            setInDashboard(true);
+    setLoginModal(false);
+    setSignUpModal(false);
         }
-
   };
 
   function LoginHandler(){
@@ -82,19 +89,7 @@ rules={ {required: "Email is required",
 register={register} name={'Email'} error={errors.Email} className={'inputfield'}/>
 
 <Input label="PhoneNumber" type="tel"
-rules={{required:"Phone Number is required",
-        pattern: {
-      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message: "Enter a Valid Phone Number",
-    },
-    minLength: {
-      value: 10,
-      message: "Enter a valid numbe r",
-    },
-    maxLength: {
-      value: 12,
-      message: "Enter a valid number",
-    },
+rules={{required:"Phone Number is required"
 }}
 register={register} name={'PhoneNumber'} error={errors.PhoneNumber} className={'inputfield'}/>
 
@@ -115,7 +110,7 @@ register={register} name={'Password'} error={errors.Password} className={'inputf
 
 <div className="mt-4">
  <input type="checkbox" id="terms" name="terms" required />
-  <label for="terms">I agree to the terms and conditions</label>
+  <label htmlFor="terms">I agree to the terms and conditions</label>
 </div>
 
 {/* <Input label="I agree to the terms and conditions" type="checkbox" rules={{required:"field is required"}} register={register} 

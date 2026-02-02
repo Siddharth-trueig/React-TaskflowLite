@@ -7,6 +7,8 @@ import AppRoutes from './Common/routes/AppRoutes'
 import {ModalProvider} from './Common/Context/ModalContext'
 import {HomeModal} from './Common/Modal/HomeModal'
 import {Header} from './Common/Header/Header'
+import {LogoutModal} from './Common/Modal/LogoutModal'
+import {UserDetails} from './Common/Modal/UserDetails'
 function App() {
 
 
@@ -16,6 +18,8 @@ function App() {
  {/* <AppRoutes/> */}
  <Header/>
  <HomeModal/>
+ <LogoutModal/>
+ <UserDetails/>
  </ModalProvider>
    
  

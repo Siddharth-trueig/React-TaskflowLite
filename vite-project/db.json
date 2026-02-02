@@ -2,6 +2,31 @@
   "users": [
     {
       "id": "0b96"
+    },
+    {
+      "id": "9ae2",
+      "UserName": "Siddh",
+      "Email": "zinfer@gmail.com",
+      "PhoneNumber": "12345",
+      "Password": "123456",
+      "fullName": "siddharth Singh",
+      "state": "Mp",
+      "address": "Jaitwara",
+      "zip": "12345"
+    },
+    {
+      "id": "4d0c",
+      "UserName": "Siddd",
+      "Email": "zinfer@gmail.com",
+      "PhoneNumber": "123456",
+      "Password": "123456"
+    },
+    {
+      "id": "17ae",
+      "UserName": "Siddd",
+      "Email": "zinfer@gmail.com",
+      "PhoneNumber": "123456",
+      "Password": "5544"
     }
   ],
   "task": [

@@ -38,8 +38,44 @@ export const addTask = async (data) => {
   return newTask;
 };
 
+export const addUser = async (data) => {
+  const newUser = await axios.post(`http://localhost:3000/users`, data);
+  console.log(newUser.data);
+  return newUser;
+};
 
+export const loginUser = async (username) => {
+  const res = await axios.get(
+    `http://localhost:3000/users?UserName=${username}`
+  );
+  return res.data; // array
+};
 
+export const findUser = async (userid) => {
+  const res = await axios.get(
+    `http://localhost:3000/users/${userid}`
+  );
+  return res.data; // array
+};
+
+export const updateUser = async ({
+   id,
+  fullName,
+  UserName,
+  Email,
+  PhoneNumber,
+  gender,
+  dob,
+  address,
+  zip,
+  state
+}) => {
+  const updatedDetail = await axios.patch(`http://localhost:3000/users/${id}`, {
+    fullName,UserName,Email,PhoneNumber,gender,dob,address,zip,state
+  });
+  console.log(updatedDetail);
+  return updatedDetail;
+};
 
 fetchTask();
 
