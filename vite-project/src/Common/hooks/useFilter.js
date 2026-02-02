@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useTask } from "../Context/TaskContext";
 import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchTodo } from "../Common/Redux/todoSlice";
+// import { fetchTodo } from "../Common/Redux/todoSlice";
 export const useFilteredTasks = () => {
   const tasks=useSelector((state)=>{
     console.log("state.todo is ",state.todos.todo);

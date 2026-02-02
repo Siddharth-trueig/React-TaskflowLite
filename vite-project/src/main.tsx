@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Login from './Components/features/auth/Login'
-import './index.css'
+import './global.css'
 import {AuthProvider} from  './Common/Context/AuthContext'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'

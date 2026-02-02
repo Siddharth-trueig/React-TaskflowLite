@@ -5,7 +5,7 @@ import { EditTaskModal } from "./EditTaskModal";
 import {useTask} from '../../../Common/Context/TaskContext'
 import { DropArea } from "./DropArea";
 import { useDispatch,useSelector } from "react-redux";
-import { deleteTodo, updateTodo } from "../../Common/Redux/todoSlice";
+// import { deleteTodo, updateTodo } from "../../Common/Redux/todoSlice";
 export const TaskColumn = ({
   todoStatus=[],
   inProgressStatus=[],

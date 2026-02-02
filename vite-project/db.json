@@ -9,19 +9,6 @@
       "id": "d63f",
       "title": "Second",
       "status": "in-progress",
-<<<<<<< HEAD
-      "priority": "medium",
-      "dueDate": "2026-02-06",
-      "assignee": "uhi"
-    },
-    {
-      "id": "f0d0",
-      "title": "sec",
-      "status": "done",
-      "priority": "medium",
-      "dueDate": "2026-01-31",
-      "assignee": "yfyj"
-=======
       "priority": "low",
       "dueDate": "2026-01-29",
       "assignee": "Sidd"
@@ -49,7 +36,6 @@
       "priority": "medium",
       "dueDate": "2026-02-05",
       "assignee": "jfbja"
->>>>>>> c52e219 (Changed the folder structure)
     }
   ]
 }
