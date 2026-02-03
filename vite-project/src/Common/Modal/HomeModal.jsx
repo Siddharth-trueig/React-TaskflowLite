@@ -50,8 +50,10 @@ import img from "../../assets/img.png";
 import { useModal } from "../Context/ModalContext";
 import Login from "../../Components/features/auth/Login";
 import SignUp from "../../Components/features/auth/Signup";
+import { useNavigate } from "react-router-dom";
 
 export const HomeModal = () => {
+  const navigate=useNavigate();
   const {
     loginModal,
     signUpModal,
@@ -75,7 +77,7 @@ export const HomeModal = () => {
             src={img}
             alt="Taskflow"
 
-            className="w-full h-[570px]"
+            className="w-full h-full"
           />
         </div>
 
@@ -83,6 +85,7 @@ export const HomeModal = () => {
         <div className="w-[55%] p-10 h-[100%]  text-white flex flex-col gap-[1.5vw]">
            <button
             onClick={() => {
+              navigate("/");
               setLoginModal(false);
               setSignUpModal(false);
             }}

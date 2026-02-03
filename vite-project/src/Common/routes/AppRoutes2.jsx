@@ -9,30 +9,34 @@ import { TaskProvider } from "../Context/TaskContext";
 import { TaskSearch } from "../../Components/features/tasks/TaskSearch";
 import { FilterPanel } from "../../Components/features/tasks/FilterPanel";
 import { Logout } from "../../Components/features/auth/Logout";
-import { Header } from "../Header/Header";
 import { Home } from "../HomePage/Home";
 import { HomeModal } from "../Modal/HomeModal";
+import { Header } from "../Header/Header";
+import { Task } from "../Combo/Task";
+import { LogoutModal } from "../Modal/LogoutModal";
+import { UserDetails } from "../Modal/UserDetails";
 export const AppRoutes2 = () => {
   return (
   <Routes>
     <Route path="*" element={<Navigate to= "/"/>}/>
-    <Header/>
-    <Route path='/' element={<Home/>}/>
+    <Route path="/" element={<Header/>}>
+    <Route index element={<Home/>}/>
+   
     <Route path='/login' element={<HomeModal/>}/>
     <Route
       path="/dashboard"
        element={
         <ProtectedRoute>
-          <Logout/>
+          {/* <Logout/> */}
+          <LogoutModal/>
+          <UserDetails/>
 <TaskProvider>
-  <TaskSearch/> 
-  <FilterPanel/>
-  <TaskBoard />
-  <TaskRender/>
+  <Task/>
    </TaskProvider>
    </ProtectedRoute>
         }
       />
+      </Route>
   </Routes>
   )
 }

@@ -32,7 +32,7 @@ const SignUp = () => {
                 const newuser=await addUser(data);
                 console.log("newuser data details",newuser.data);
             localStorage.setItem("Token", JSON.stringify(userData));
-            console.log(data.name + " has been successfully registered");
+            console.log(data.UserName + " has been successfully registered");
       
                navigate("/dashboard");
             setInDashboard(true);
@@ -65,7 +65,6 @@ rules={ {required: "UserName is required",
       value: 50,
       message: "Min Length must not exceed 50 characters",
     },
-
 } }   
 register={register} name={'UserName'} error={errors.UserName} className={'inputfield'}/>
 

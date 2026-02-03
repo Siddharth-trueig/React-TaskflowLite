@@ -4,46 +4,27 @@
       "id": "0b96"
     },
     {
-      "id": "9ae2",
+      "id": "8cae",
       "UserName": "Siddh",
       "Email": "zinfer@gmail.com",
-      "PhoneNumber": "12345",
-      "Password": "123456",
-      "fullName": "siddharth Singh",
-      "state": "Mp",
-      "address": "Jaitwara",
-      "zip": "12345"
-    },
-    {
-      "id": "4d0c",
-      "UserName": "Siddd",
-      "Email": "zinfer@gmail.com",
-      "PhoneNumber": "123456",
+      "PhoneNumber": "987654321",
       "Password": "123456"
     },
     {
-      "id": "17ae",
-      "UserName": "Siddd",
-      "Email": "zinfer@gmail.com",
-      "PhoneNumber": "123456",
-      "Password": "5544"
+      "id": "dbdb",
+      "UserName": "Siddh2",
+      "Email": "Sidd@gmail.com",
+      "PhoneNumber": "1234567899",
+      "Password": "123456"
     }
   ],
   "task": [
     {
-      "id": "d63f",
-      "title": "Second",
-      "status": "in-progress",
-      "priority": "low",
-      "dueDate": "2026-01-29",
-      "assignee": "Sidd"
-    },
-    {
       "id": "08e8",
       "title": "Fourth",
-      "status": "done",
+      "status": "todo",
       "priority": "medium",
-      "dueDate": "2026-01-31",
+      "dueDate": "2026-01-01",
       "assignee": "singh"
     },
     {
@@ -57,7 +38,7 @@
     {
       "id": "4769",
       "title": "Fifth",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "medium",
       "dueDate": "2026-02-05",
       "assignee": "jfbja"

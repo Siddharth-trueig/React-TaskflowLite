@@ -17,15 +17,11 @@ button:focus-visible {
     --main-border:1px ;
     --main-border-color: #E4A02D;
     --left-bg-color: rgba(32, 11, 51, 1);
-    --login-width:calc(587/16 *1rem);
-    --login-height:calc(772/16*1rem);
-    --loginfromtop:calc(62/16*1rem);
-    --loginfromleft:calc(792/16*1rem);
     --font-poppins:"Poppins";
 }
 @layer components{
 
-    
+
    .app-header {
     position: fixed;
     top: 0;
@@ -299,7 +295,7 @@ width:20%;
 @apply ml-10
   }
   .Singupfont {
- @apply font-semibold font-poppins text-[calc(25/16*1rem)] leading-[140%] text-[#ffff]
+ @apply font-semibold font-poppins text-[calc(25/16*1rem)] leading-[140%] text-white
   }
   .secdiv{
     @apply flex w-full justify-center h-full
@@ -312,7 +308,7 @@ width:20%;
     @apply w-[10%] bg-white h-0.5 mt-5 ml-2 mr-2
   }
 .SignUpDiv{
-  @apply  w-[100%] flex flex-col justify-start gap-y-[1px] font-medium text-[1rem]
+  @apply  w-full flex flex-col justify-start gap-y-[1px] font-medium text-base
 }
 .inputfield{
 @apply h-[calc(36/16*1rem)] rounded-xl  bg-[#2C0E48] border border-white focus:outline-none focus:border-[#E4A02D] focus:ring-0

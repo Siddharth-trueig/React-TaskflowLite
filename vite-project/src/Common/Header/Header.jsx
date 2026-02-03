@@ -1,23 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useModal } from '../Context/ModalContext';
 import { LogoutModal } from '../Modal/LogoutModal';
+import { Outlet, useNavigate } from 'react-router-dom';
 export const Header = () => {
-    const {loginModal,setLoginModal,signUpModal,setSignUpModal,inDashboard,setLogoutModal,userDetails,setUserDetails}=useModal();
+  const navigate=useNavigate();
+    const {loginModal,setLoginModal,signUpModal,setSignUpModal,inDashboard,setInDashboard,setLogoutModal,userDetails,setUserDetails}=useModal();
+
+    useEffect(()=>{
+const present=localStorage.getItem("Token");
+if(present){
+setInDashboard(true);
+}
+    },[])
       function handleLogin(){
+        navigate("/login");
 setLoginModal(true);
       }
       function handleSignUp(){
+         navigate("/login");
         setSignUpModal(true);
       }
 function hadleLogout(){
   setLogoutModal(true);
 }
 function handleUser(){
+  console.log("Setting User Details");
 setUserDetails(true);
 }
       
   return (
-    <div className='bg-red-500'>
+    <div className=''>
     <header className='app-header'>
         <span>TaskFlow Lite</span>
         <span className='app-header-right'>
@@ -45,6 +57,7 @@ SignUp
 
         </span>
     </header>
+     <Outlet/>
      </div>
   )
 }

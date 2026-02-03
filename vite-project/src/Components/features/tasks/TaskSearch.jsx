@@ -36,7 +36,7 @@ export const TaskSearch = () => {
     <div>
       <div>Search By Title:</div>
       <input
-        className="search"
+        className="search inputfield2"
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}

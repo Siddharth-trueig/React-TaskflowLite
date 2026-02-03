@@ -7,7 +7,7 @@ export const FilterPanel = () => {
     <div>
       <h4>Filter by Priority</h4>
 
-      <select
+      <select className="bg-amber-900"
         value={priorityFilter}
         onChange={(e) => setPriorityFilter(e.target.value)}
       >

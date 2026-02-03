@@ -3,10 +3,10 @@ import { useCreateTask } from "../../../Common/hooks/useCreateTask";
 import { useTask } from "../../../Common/Context/TaskContext";
 import { useNavigate } from "react-router-dom";
 // import { addTodo } from "../../Common/Redux/todoSlice";
-import {useSelector,useDispatch} from 'react-redux'
+// import {useSelector,useDispatch} from 'react-redux'
 
 export const TaskBoard = () => {
-  const dispatch=useDispatch();
+  // const dispatch=useDispatch();
   
   const { createTask, loading, error } = useCreateTask();
   const [showModal, setShowModal] = useState(false);
@@ -34,12 +34,12 @@ const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const newTask = await createTask(formData);
-    // if (!newTask) return;
+    const newTask = await createTask(formData);
+    if (!newTask) return;
 
-    // setTasks([...tasks, newTask]);
-    // setCtasks((prevTasks) => [...prevTasks, newTask]);
-    dispatch(addTodo(formData));
+    setTasks([...tasks, newTask]);
+    setCtasks((prevTasks) => [...prevTasks, newTask]);
+    // dispatch(addTodo(formData));
 
     setFormData({
       title: "",
@@ -54,13 +54,13 @@ const navigate=useNavigate()
 
   return (
   <>
-    <button onClick={() => setShowModal(true)}>
+    <button onClick={() => setShowModal(true)} className="bg-fuchsia-700">
       + Add Task
     </button>
 
     {showModal && (
-      <div style={overlayStyle}>
-        <div style={modalStyle}>
+      <div style={overlayStyle} >
+        <div  className="bg-black ">
           <h3>Add New Task</h3>
 
           <form onSubmit={handleSubmit}>
@@ -73,6 +73,7 @@ const navigate=useNavigate()
                 required
                 value={formData.title}
                 onChange={handleChange}
+                className="border border-gray-300 p-1 rounded focus:border-blue-500"
               />
             </span>
 
@@ -82,6 +83,7 @@ const navigate=useNavigate()
                 id="status"
                 name="status"
                 value={formData.status}
+                className="border border-gray-300 p-1 rounded bg-amber-700 focus:border-blue-500"
                 onChange={handleChange}
               >
                 <option value="todo">To Do</option>
@@ -96,6 +98,7 @@ const navigate=useNavigate()
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}
+                className="border border-gray-300 p-1 rounded bg-amber-700 focus:border-blue-500"
               >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -120,6 +123,7 @@ const navigate=useNavigate()
       name="dueDate"
       type="date"
       required
+      className="bg-amber-50 text-black"
       value={formData.dueDate}
       onChange={handleChange}
       min={new Date().toISOString().split("T")[0]}
@@ -136,15 +140,16 @@ const navigate=useNavigate()
                 name="assignee"
                 value={formData.assignee}
                 onChange={handleChange}
+                  className="border border-gray-300 p-1 rounded focus:border-blue-500"
               />
             </div>
 
-            <div style={{ display: "flex", gap: "10px" }}>
-              <button type="submit" disabled={loading}>
+            <div style={{ display: "flex", gap: "2px" }}>
+              <button type="submit" disabled={loading} className="p-1 h-[40px] mt-4 rounded-full bg-[#420356]">
                 {loading ? "Saving..." : "Add Task"}
               </button>
 
-              <button
+              <button className="saveBtn"
                 type="button"
                 onClick={() => setShowModal(false)}
               >
@@ -175,9 +180,9 @@ const overlayStyle = {
   zIndex: 1000,
 };
 
-const modalStyle = {
-  background: "#d8ce0fd0",
-  padding: "20px",
-  borderRadius: "8px",
-  width: "400px",
-};
+// const modalStyle = {
+//   background: "#d8ce0fd0",
+//   padding: "20px",
+//   borderRadius: "8px",
+//   width: "400px",
+// };
