@@ -8,7 +8,8 @@
       "UserName": "Siddh",
       "Email": "zinfer@gmail.com",
       "PhoneNumber": "987654321",
-      "Password": "123456"
+      "Password": "123456",
+      "fullName": "Siddha"
     },
     {
       "id": "dbdb",
@@ -38,7 +39,7 @@
     {
       "id": "4769",
       "title": "Fifth",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "medium",
       "dueDate": "2026-02-05",
       "assignee": "jfbja"

@@ -108,13 +108,13 @@ export const HomeModal = () => {
         }
           {signUpModal &&
 
-          <div className="RIghtSignUp">
-          <div className="SignupRight">
-          <div className="Singupfont">Sign Up</div>
+          <div className="ml-10">
+          <div className="w-full  flex flex-col  items-center">
+          <div className="font-semibold text-[calc(25/16*1rem)] leading-[140%] text-white">Sign Up</div>
 
-          <div className="secdiv">
+          <div className="flex w-full justify-center h-full">
              <span className="line2"></span>
-           <div className="singuptwo">Sign Up with email</div>
+           <div className="opacity-100 mt-1 font-semibold text-[calc(18/16*1rem)] leading-[140%]">Sign Up with email</div>
              <span className="line2"></span>
           </div>
             </div>

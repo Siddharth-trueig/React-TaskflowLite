@@ -49,7 +49,7 @@ const SignUp = () => {
     <div>
     <form onSubmit={handleSubmit(onSubmit)}>
 
-      <div className="SignUpDiv">
+      <div className=" w-full flex flex-col justify-start gap-y-[1px] font-medium text-base">
        
 <Input label="UserName" type='text' 
 rules={ {required: "UserName is required",
@@ -116,7 +116,7 @@ register={register} name={'Password'} error={errors.Password} className={'inputf
 name={'terms'} error={errors.terms} className={'flex inline'}/> */}
  </div>  
  <div className="flex items-center justify-center">
-<button type="submit" className="signupBtn">Signup</button>
+<button type="submit" className="w-[60%] h-10 rounded-md mt-[3vh] mx-auto bg-[#420356] text-center font-semibold text-[20/16rem]">Signup</button>
  </div>
 
     </form>

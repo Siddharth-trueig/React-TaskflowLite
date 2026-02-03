@@ -90,10 +90,10 @@ export const UserDetails = () => {
       {userDetails && (
         <div>
           <div className="overlay">
-            <div className="userDetailsModal flex flex-col justify-center items-center">
+            <div className="bg-[#200B33] text-white w-[80%] h-[80%] rounded-md flex flex-col justify-center items-center">
               <div>
                 <div className="ml-10">
-                  {" "}
+        
                   <img src={Mask} width="40px" />
                 </div>
 

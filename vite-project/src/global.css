@@ -12,6 +12,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+:root{
+  font-family:'Poppins'
+}
 
 @theme{
     --main-border:1px ;
@@ -33,7 +36,7 @@ button:focus-visible {
     align-items: center;
     justify-content: space-between; 
     padding-inline: calc(24 / 16 * 1rem);
-    background-color:aqua;
+   
   }
 .app-header button {
   border-radius: 8px;
@@ -288,43 +291,43 @@ width:20%;
 }
 }
 @layer utilities{
-  .SignupRight{
-@apply w-full  flex flex-col  items-center 
-  }
-  .RIghtSignUp{
-@apply ml-10
-  }
-  .Singupfont {
- @apply font-semibold font-poppins text-[calc(25/16*1rem)] leading-[140%] text-white
-  }
-  .secdiv{
-    @apply flex w-full justify-center h-full
-  }
+  /* .SignupRight{
+@apply  
+  } */
+  /* .RIghtSignUp{
+@apply 
+  } */
+  /* .Singupfont {
+ @apply 
+  } */
+  /* .secdiv{
+    @apply 
+  } */
 
-  .singuptwo{
-    @apply opacity-100 mt-1 font-semibold text-[calc(18/16*1rem)] leading-[140%]
-  }
+  /* .singuptwo{
+    @apply 
+  } */
   .line2{
     @apply w-[10%] bg-white h-0.5 mt-5 ml-2 mr-2
   }
-.SignUpDiv{
-  @apply  w-full flex flex-col justify-start gap-y-[1px] font-medium text-base
-}
+/* .SignUpDiv{
+  @apply 
+} */
 .inputfield{
 @apply h-[calc(36/16*1rem)] rounded-xl  bg-[#2C0E48] border border-white focus:outline-none focus:border-[#E4A02D] focus:ring-0
 }
-.signupBtn{
-@apply w-[60%] h-10 rounded-md mt-[3vh] mx-auto bg-[#420356] text-center font-semibold text-[20/16rem]
-}
-.logout-Modal{
-  @apply bg-[#430356d1] w-[40%] h-[20%] text-white p-2 rounded-md flex flex-col gap-1.5
-}
-.userDetailsModal{
- @apply bg-[#200B33] text-white w-[80%] h-[80%] rounded-md
-}
+/* .signupBtn{
+@apply 
+} */
+/* .logout-Modal{
+  @apply 
+} */
+/* .userDetailsModal{
+ @apply 
+} */
 
 .inputfield2{
-@apply h-[calc(36/16*1rem)] rounded-xl  bg-[#2C0E48] border border-white focus:outline-none focus:border-[#E4A02D] focus:ring-0 w-full min-w-[450px]
+@apply h-[calc(36/16*1rem)] rounded-xl  bg-[#2C0E48] border border-white focus:outline-none focus:border-[#E4A02D] focus:ring-0 p-4 w-full min-w-[450px]
 }
 .saveBtn{
   @apply mx-auto w-[10%] h-[calc(40/16*1rem)] mt-4 rounded-2xl text-[#FFBD0B] bg-[#420356] flex justify-center items-center

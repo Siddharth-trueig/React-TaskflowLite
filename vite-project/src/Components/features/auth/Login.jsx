@@ -147,7 +147,7 @@ register={register} name={'Password'} error={errors.Password} className={'passwo
   Forgot Your Password?
 </div>
 <div>
-<button type="submit" className="LoginBtn ">Login</button>
+<button type="submit" className="LoginBtn ">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
 </div>
 <div className="notAccount">
   <span className="notAccountLft"> Don't Have an Account </span>

@@ -30,7 +30,7 @@ setUserDetails(true);
       
   return (
     <div className=''>
-    <header className='app-header'>
+    <header className='app-header text-white bg-gray-900'>
         <span>TaskFlow Lite</span>
         <span className='app-header-right'>
             {/* //1st btn */}{
@@ -38,19 +38,19 @@ setUserDetails(true);
 <div>
 
 
-<button onClick={handleLogin}>
-Login
+<button onClick={handleLogin} className='mr-4 bg-gray-800'>
+Login 
  </button>
 
-  <button onClick={handleSignUp}>
+  <button onClick={handleSignUp} className='bg-gray-800'>
 SignUp
 </button>
  </div>  }
 {
   inDashboard&&
-  <div>
-    <button onClick={handleUser}>User Details</button>
-    <button onClick={hadleLogout}>Logout</button>
+  <div >
+    <button onClick={handleUser} className='mr-4 bg-gray-800'>User Details <i class="fa-solid fa-circle-chevron-down"></i></button>
+    <button onClick={hadleLogout} className='bg-gray-800'> <i class="fa-solid fa-circle-chevron-left"></i>Logout </button>
   </div>
 }
 

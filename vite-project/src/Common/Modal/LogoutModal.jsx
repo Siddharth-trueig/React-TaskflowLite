@@ -23,10 +23,10 @@ export const LogoutModal = () => {
     <div>
  {logoutModal&&
  <div className="overlay">
-      <div className="modal-box logout-Modal">
+      <div className="modal-box bg-[#430356d1] text-center w-[40%] h-[20%] text-white p-2 rounded-md  flex flex-col gap-1.5-Modal">
         <p>Are you sure you want to logout?</p>
-        <button onClick={handleLogout}>YES</button>
-        <button onClick={handleNo}>NO</button>
+        <button onClick={handleLogout} className='p-2 mt-2 bg-amber-700 rounded-full'>YES</button>
+        <button onClick={handleNo} className='p-2 mt-2 bg-amber-700 rounded-full'>NO</button>
       </div>
     </div>
     }
