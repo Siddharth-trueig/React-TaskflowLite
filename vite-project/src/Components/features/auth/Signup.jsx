@@ -66,7 +66,7 @@ rules={ {required: "UserName is required",
       message: "Min Length must not exceed 50 characters",
     },
 } }   
-register={register} name={'UserName'} error={errors.UserName} className={'inputfield'}/>
+register={register} name={'UserName'} error={errors.UserName} className={'inputfield2'}/>
 
 
 <Input label="Email" type='email' 
@@ -85,12 +85,12 @@ rules={ {required: "Email is required",
     },
 
 } }   
-register={register} name={'Email'} error={errors.Email} className={'inputfield'}/>
+register={register} name={'Email'} error={errors.Email} className={'inputfield2'}/>
 
 <Input label="PhoneNumber" type="tel"
 rules={{required:"Phone Number is required"
 }}
-register={register} name={'PhoneNumber'} error={errors.PhoneNumber} className={'inputfield'}/>
+register={register} name={'PhoneNumber'} error={errors.PhoneNumber} className={'inputfield2'}/>
 
 
 <Input label="Password" type='password' 
@@ -105,7 +105,7 @@ register={register} name={'PhoneNumber'} error={errors.PhoneNumber} className={'
         message:"Max Len Must be inside 50"
     }
 }}
-register={register} name={'Password'} error={errors.Password} className={'inputfield'}/>
+register={register} name={'Password'} error={errors.Password} className={'inputfield2'}/>
 
 <div className="mt-4">
  <input type="checkbox" id="terms" name="terms" required />
@@ -116,17 +116,17 @@ register={register} name={'Password'} error={errors.Password} className={'inputf
 name={'terms'} error={errors.terms} className={'flex inline'}/> */}
  </div>  
  <div className="flex items-center justify-center">
-<button type="submit" className="w-[60%] h-10 rounded-md mt-[3vh] mx-auto bg-[#420356] text-center font-semibold text-[20/16rem]">Signup</button>
+<button type="submit" className="w-[60%] h-10 rounded-md mt-[3vh] mx-auto bg-[var(--signupBtn)] text-center font-semibold text-[1rem]">Signup</button>
  </div>
 
     </form>
-<div className="notAccount">
+<div className="notAccount w-full mt-2">
   <span className="notAccountLft">
  Already Have an Account? 
   </span>
-  <button className="notAccountRgt" onClick={LoginHandler}>
+  <a className="notAccountRgt underline mt-2 hover:text-blue-600 hover:cursor-pointer" onClick={LoginHandler}>
     Login
-  </button>
+  </a>
  
 </div>
 </div>

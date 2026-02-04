@@ -72,12 +72,12 @@ export const HomeModal = () => {
       <div className=" modal-box border relative border-[var(--main-border-color)] bg-[var(--left-bg-color)]">
 
         {/*  Left Section (40%) */}
-        <div className="w-[40%]">
+        <div className="w-[40%] ">
           <img
             src={img}
             alt="Taskflow"
 
-            className="w-full h-full"
+            className="h-full object-cover"
           />
         </div>
 
@@ -89,7 +89,7 @@ export const HomeModal = () => {
               setLoginModal(false);
               setSignUpModal(false);
             }}
-            className="absolute top-4 right-4 z-50 rounded-md bg-black text-white w-10 h-10 flex items-center justify-center hover:bg-gray-800"
+            className="absolute top-4 right-4 z-50 rounded-md bg-black text-white w-16 h-10 flex items-center justify-center hover:bg-gray-800"
           >
             Close
           </button>
@@ -108,13 +108,13 @@ export const HomeModal = () => {
         }
           {signUpModal &&
 
-          <div className="ml-10">
+          <div className="ml-4">
           <div className="w-full  flex flex-col  items-center">
-          <div className="font-semibold text-[calc(25/16*1rem)] leading-[140%] text-white">Sign Up</div>
+          <div className="font-semibold text-[1.5rem] leading-[140%] text-white">Sign Up</div>
 
           <div className="flex w-full justify-center h-full">
              <span className="line2"></span>
-           <div className="opacity-100 mt-1 font-semibold text-[calc(18/16*1rem)] leading-[140%]">Sign Up with email</div>
+           <div className="opacity-100 mt-1 font-semibold text-[1.2rem] leading-[140%]">Sign Up with email</div>
              <span className="line2"></span>
           </div>
             </div>

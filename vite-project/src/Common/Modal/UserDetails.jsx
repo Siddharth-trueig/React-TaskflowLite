@@ -90,11 +90,11 @@ export const UserDetails = () => {
       {userDetails && (
         <div>
           <div className="overlay">
-            <div className="bg-[#200B33] text-white w-[80%] h-[80%] rounded-md flex flex-col justify-center items-center">
+            <div className="bg-[var(--userDetails-bg)] text-white w-[80%] h-[80%] rounded-md flex flex-col justify-center items-center">
               <div>
                 <div className="ml-10">
         
-                  <img src={Mask} width="40px" />
+                  <img src={Mask} className="w-[2.5rem]" />
                 </div>
 
                 <span>
@@ -112,7 +112,7 @@ export const UserDetails = () => {
                       register={register}
                       name="fullName"
                       error={errors.fullName}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
                     <Input
                       label="Email"
@@ -120,7 +120,7 @@ export const UserDetails = () => {
                       register={register}
                       name="Email"
                       error={errors.email}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
 
                     <Select
@@ -133,7 +133,7 @@ export const UserDetails = () => {
                         { value: "other", label: "Other" },
                       ]}
                       error={errors.gender}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
 
                     <Input
@@ -142,7 +142,7 @@ export const UserDetails = () => {
                       register={register}
                       name="address"
                       error={errors.address}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
                     <Input
                       label="State"
@@ -150,7 +150,7 @@ export const UserDetails = () => {
                       register={register}
                       name="state"
                       error={errors.state}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
                   </div>
 
@@ -162,7 +162,7 @@ export const UserDetails = () => {
                       register={register}
                       name="UserName"
                       error={errors.UserName}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
 
                     <Input
@@ -171,7 +171,7 @@ export const UserDetails = () => {
                       register={register}
                       name="PhoneNumber"
                       error={errors.phone}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
 
                     <Input
@@ -180,7 +180,7 @@ export const UserDetails = () => {
                       register={register}
                       name="dob"
                       error={errors.dob}
-                      className={"inputfield2"}
+                      className="inputfield2"
                       max={today}
                     />
 
@@ -190,7 +190,7 @@ export const UserDetails = () => {
                       register={register}
                       name="zip"
                       error={errors.zip}
-                      className={"inputfield2"}
+                      className="inputfield2"
                     />
                   </div>
                 </div>

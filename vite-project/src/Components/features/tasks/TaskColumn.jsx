@@ -143,12 +143,14 @@ setActiveCard(null);
      
       <div
         key={task.id}
-        style={{
-          background: "#f4f4f44c",
-          padding: "10px",
-          marginBottom: "10px",
-          cursor:"grab"
-        }}
+       className="bg-gray-900/50 p-5 border border-[#2C0E48] hover:border-blue-700 cursor-grab rounded-md"
+
+        // style={{
+        //   background: "#f4f4f44c",
+        //   padding: "10px",
+        //   marginBottom: "10px",
+        //   cursor:"grab"
+        // }} 
         draggable onDragStart={()=>setActiveCard(task.id)}
         onDragEnd={()=>setActiveCard(null)}
       >
@@ -174,7 +176,7 @@ setActiveCard(null);
   }
   return (
     <>
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div className="flex gap-x-20">
         <div>
           <h3>To Do</h3>
           {renderTasks(todoStatus,(position)=>onDrop("todo",position))}

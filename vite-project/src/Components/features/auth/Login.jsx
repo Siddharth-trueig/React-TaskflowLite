@@ -126,7 +126,7 @@ rules={ {required: "Enter a valid first Name",
     },
 
 } }   
-register={register} name={'UserName'} error={errors.UserName} className={'userNamefield'}/>
+register={register} name={'UserName'} error={errors.UserName} className='inputfield2'/>
 
 
 <Input label="Password" type='password' 
@@ -141,17 +141,20 @@ register={register} name={'UserName'} error={errors.UserName} className={'userNa
         message:"Max Len Must be inside 50"
     }
 }}
-register={register} name={'Password'} error={errors.Password} className={'passwordInput'}/>
+register={register} name={'Password'} error={errors.Password} className='inputfield2 '/>
 
-<div className="forgot">
+{/* <div > */}
+<a href="/" className="flex justify-center underline mt-2 hover:text-blue-600  " >
   Forgot Your Password?
-</div>
-<div>
-<button type="submit" className="LoginBtn ">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
-</div>
+</a>
+
+{/* </div> */}
+
+<button type="submit" className="flex justify-center items-center mx-auto LoginBtn ">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+
 <div className="notAccount">
   <span className="notAccountLft"> Don't Have an Account </span>
- <button className="notAccountRgt" onClick={HandleClick}>Sign Up</button>
+ <a className="notAccountRgt underline mt-2 hover:text-blue-600 hover:cursor-pointer" onClick={HandleClick}>Sign Up</a>
 </div>
 
     </form>

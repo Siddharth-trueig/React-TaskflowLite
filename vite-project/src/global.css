@@ -17,8 +17,13 @@ button:focus-visible {
 }
 
 @theme{
+  --signupBtn:#420356;
     --main-border:1px ;
+    --saveBtnTxt:#FFBD0B; 
+    --saveBtnbg:#420356;
     --main-border-color: #E4A02D;
+    --input-bg: #2C0E48;
+    --userDetails-bg:#200B33;
     --left-bg-color: rgba(32, 11, 51, 1);
     --font-poppins:"Poppins";
 }
@@ -175,6 +180,7 @@ width:20%;
 
 .userNamefield {
   width:100%;
+  padding: 20px;
   height: calc(40.404537200927734 / 16 * 1rem);
   top: calc(25.2 / 16 * 1rem);
   left: calc(7.45 / 16 * 1rem);
@@ -226,7 +232,7 @@ width:20%;
   box-shadow: 0 calc(4.58 / 16 * 1rem) calc(4.58 / 16 * 1rem) 0 rgba(0, 0, 0, 0.25);
 }
 .LoginBtn {
-  width: calc(380 / 16 * 1rem);
+  width: 80%;
   height: calc(52 / 16 * 1rem);
   margin-top: 12%;
   /* top: calc(614 / 16 * 1rem); */
@@ -308,13 +314,13 @@ width:20%;
     @apply 
   } */
   .line2{
-    @apply w-[10%] bg-white h-0.5 mt-5 ml-2 mr-2
+    @apply w-[10%] bg-white h-0.5 mt-5 mx-2
   }
 /* .SignUpDiv{
   @apply 
 } */
 .inputfield{
-@apply h-[calc(36/16*1rem)] rounded-xl  bg-[#2C0E48] border border-white focus:outline-none focus:border-[#E4A02D] focus:ring-0
+@apply h-[1.8rem] rounded-xl  bg-[var(--input-bg)] border border-white focus:outline-none focus:border-[var(--main-border-color)] focus:ring-0
 }
 /* .signupBtn{
 @apply 
@@ -327,9 +333,9 @@ width:20%;
 } */
 
 .inputfield2{
-@apply h-[calc(36/16*1rem)] rounded-xl  bg-[#2C0E48] border border-white focus:outline-none focus:border-[#E4A02D] focus:ring-0 p-4 w-full min-w-[450px]
+@apply h-8 rounded-xl  bg-[var(--input-bg)] border border-white focus:outline-none focus:border-[var(--main-border-color)] focus:ring-0 p-4 w-full min-w-[28.12rem]
 }
 .saveBtn{
-  @apply mx-auto w-[10%] h-[calc(40/16*1rem)] mt-4 rounded-2xl text-[#FFBD0B] bg-[#420356] flex justify-center items-center
+  @apply mx-auto w-[10%] h-[2.4rem] mt-4 rounded-2xl text-[var(--saveBtnTxt)] bg-[var(--saveBtnbg)] flex justify-center items-center
 }
 }

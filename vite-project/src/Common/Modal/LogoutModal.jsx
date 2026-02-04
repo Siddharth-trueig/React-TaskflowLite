@@ -30,7 +30,6 @@ export const LogoutModal = () => {
       </div>
     </div>
     }
-   
     </div>
    
   );
