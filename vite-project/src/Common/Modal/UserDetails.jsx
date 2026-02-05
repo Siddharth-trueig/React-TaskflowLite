@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm,Controller } from "react-hook-form";
 import { useModal } from "../Context/ModalContext";
 import { Input } from "../Form/Input";
 import { Select } from "../Form/Select";
 import { findUser } from "../../services/TaskService";
 import Mask from "../../assets/Mask.png";
 import { updateUser,loginUser } from "../../services/TaskService";
-
+import {USER_DETAILS_FIELDS} from "../Form/userDetails"
 export const UserDetails = () => {
   const { userDetails, setUserDetails } = useModal();
   const today = new Date().toISOString().split("T")[0];
@@ -17,6 +17,7 @@ export const UserDetails = () => {
     setValue,
     handleSubmit,
     formState: { errors },
+    control
   } = useForm();
   const user = JSON.parse(localStorage.getItem("Token"));
 
@@ -102,10 +103,10 @@ export const UserDetails = () => {
                 </span>
               </div>
               <form onSubmit={handleSubmit(saveData)}>
-                <div className="flex gap-x-4">
+                <div className="grid grid-cols-2 gap-x-4 w-[80%] mx-auto justify-center">
                   {/* Left Section  */}
 
-                  <div className="h-full w-full">
+                  {/* <div className="h-full w-full">
                     <Input
                       label="Full Name"
                       type="text"
@@ -152,10 +153,11 @@ export const UserDetails = () => {
                       error={errors.state}
                       className="inputfield2"
                     />
-                  </div>
-
+                  </div> */}
+                  
+                  
                   {/* Right Section  */}
-                  <div className=" h-full w-full">
+                  {/* <div className=" h-full w-full">
                     <Input
                       label="User Name"
                       type="text"
@@ -192,7 +194,25 @@ export const UserDetails = () => {
                       error={errors.zip}
                       className="inputfield2"
                     />
-                  </div>
+                  </div> */}
+
+                {
+USER_DETAILS_FIELDS.map((field)=>(
+  <Controller key={field.name} name={field.name} control={control} rules={field.rules}
+render={({field:UserField,fieldState})=>(
+  <Input label={field.label}
+              type={field.type}
+              placeholder={field.placeholder}
+              value={UserField.value || ""}
+              onChange={UserField.onChange}
+              onBlur={UserField.onBlur}
+              error={fieldState.error} 
+              className={field.className}
+              options={field.options}
+              />
+)}/>
+))
+                }  
                 </div>
                 <button type="submit" className="saveBtn">
                   {" "}

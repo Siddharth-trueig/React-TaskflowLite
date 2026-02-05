@@ -1,11 +1,12 @@
-import { useForm } from "react-hook-form";
+import { useForm,Controller } from "react-hook-form";
 import { useAuth } from "../../../Common/Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../../../Common/Form/Input";
 import { useModal } from "../../../Common/Context/ModalContext";
 import { addUser } from "../../../services/TaskService";
+import { signupFields } from "./SignupField";
 const SignUp = () => {
-  const { register, handleSubmit,formState: { errors } } = useForm();
+  const { register, handleSubmit,formState: { errors },control } = useForm();
   const { login } = useAuth();
  const navigate = useNavigate();
 
@@ -51,7 +52,9 @@ const SignUp = () => {
 
       <div className=" w-full flex flex-col justify-start gap-y-[1px] font-medium text-base">
        
-<Input label="UserName" type='text' 
+
+       {/* //OLd Way hai ye ab controllers se try krte hai  */}
+{/* <Input label="UserName" type='text' 
 rules={ {required: "UserName is required",
     // pattern: {
     //   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -105,7 +108,24 @@ register={register} name={'PhoneNumber'} error={errors.PhoneNumber} className={'
         message:"Max Len Must be inside 50"
     }
 }}
-register={register} name={'Password'} error={errors.Password} className={'inputfield2'}/>
+register={register} name={'Password'} error={errors.Password} className={'inputfield2'}/> */}
+
+{
+signupFields.map((field)=>(
+  <Controller key={field.name} name={field.name} control={control} rules={field.rules} render={({field:signField,fieldState})=>(
+    <Input
+    label={field.label}
+    name={field.name}
+    value={signField.value}
+    className={field.className}
+    error={fieldState.error}
+    onChange={signField.onChange}
+    onBlur={signField.onBlur}
+    placeholder={field.placeholder}
+    type={field.type}/>
+  )}/>
+))
+}
 
 <div className="mt-4">
  <input type="checkbox" id="terms" name="terms" required />

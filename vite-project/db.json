@@ -9,7 +9,9 @@
       "Email": "zinfer@gmail.com",
       "PhoneNumber": "987654321",
       "Password": "123456",
-      "fullName": "Siddha"
+      "fullName": "Siddha",
+      "state": "Madhya Pradesh",
+      "gender": "female"
     },
     {
       "id": "dbdb",

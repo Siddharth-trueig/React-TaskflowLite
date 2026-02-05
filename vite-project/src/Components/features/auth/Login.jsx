@@ -1,11 +1,12 @@
-import { useForm } from "react-hook-form";
+import { useForm,Controller } from "react-hook-form";
 import { useAuth } from "../../../Common/Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Input } from "../../../Common/Form/Input";
+import {Input}  from "../../../Common/Form/Input";
 import { useModal } from "../../../Common/Context/ModalContext";
 import { loginUser } from "../../../services/TaskService";
+import { loginFields } from "./loginFields";
 const Login = () => {
-  const { register, handleSubmit,formState: { errors } } = useForm();
+  const { register, handleSubmit,formState: { errors },control } = useForm();
     const {
       loginModal,
       signUpModal,
@@ -74,6 +75,9 @@ setSignUpModal(true);
   }
 
   return (
+    <div>
+
+   
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* <input {...register("email", { required: true })} placeholder="Email" />
       <input type="password" {...register("password", { required: true })} /> */}
@@ -113,7 +117,9 @@ setSignUpModal(true);
     },
   })}
 /> */}
-<Input label="UserName" type='text' 
+
+{/* //old Way we used register here  */}
+{/* <Input label="UserName" type='text' 
 rules={ {required: "Enter a valid first Name",
    
     minLength: {
@@ -141,8 +147,26 @@ register={register} name={'UserName'} error={errors.UserName} className='inputfi
         message:"Max Len Must be inside 50"
     }
 }}
-register={register} name={'Password'} error={errors.Password} className='inputfield2 '/>
+register={register} name={'Password'} error={errors.Password} className='inputfield2 '/> */}
 
+{/* lets try with new way using controller  */}
+
+{
+  loginFields.map((field)=>(
+<Controller key={field.name} name={field.name} control={control} rules={field.rules}
+render={({field:rhfField,fieldState})=>(
+  <Input label={field.label}
+              type={field.type}
+              placeholder={field.placeholder}
+              value={rhfField.value || ""}
+              onChange={rhfField.onChange}
+              onBlur={rhfField.onBlur}
+              error={fieldState.error} 
+              className={field.className}
+              />
+)}/>
+  ))
+}
 {/* <div > */}
 <a href="/" className="flex justify-center underline mt-2 hover:text-blue-600  " >
   Forgot Your Password?
@@ -152,12 +176,16 @@ register={register} name={'Password'} error={errors.Password} className='inputfi
 
 <button type="submit" className="flex justify-center items-center mx-auto LoginBtn ">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
 
-<div className="notAccount">
+
+    </form>
+
+    <div className="notAccount">
   <span className="notAccountLft"> Don't Have an Account </span>
  <a className="notAccountRgt underline mt-2 hover:text-blue-600 hover:cursor-pointer" onClick={HandleClick}>Sign Up</a>
 </div>
 
-    </form>
+
+ </div>
   );
 };
 
