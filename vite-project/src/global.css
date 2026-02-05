@@ -12,6 +12,26 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media (min-width:1024px) and (max-width:1300px){
+  :root{
+    font-size: 14px;
+  }
+
+}
+
+@media (min-width:650px) and (max-width:1023px){
+  :root{
+    font-size: 12px;
+  }
+
+}
+
+@media (min-width:0px) and (max-width:649px){
+  :root{
+    font-size: 10px;
+  }
+
+}
 :root{
   font-family:'Poppins'
 }
@@ -66,9 +86,10 @@ button:focus-visible {
 
 .modal-box{
     /* w-[60vw]  */
-    width: 60vw;
-    height:80vh;
-    max-width: 900px;
+    /* width: 60vw;
+    height:80vh; */
+    max-width:60vw;
+    max-height: 90vh;
      display: flex; 
      border-radius: 2%;
 }
@@ -133,15 +154,14 @@ opacity: 1;
 /* rounded-lg overflow-hidden */
 
 .login-text-font{
- margin-right: 10%;
 font-weight: 600;
 font-style: SemiBold;
-font-size:calc(18/16*1rem);
+font-size:1.1rem;
 
 line-height: 140%;
 /* letter-spacing: 0%; */
 text-align: center;
-vertical-align: middle;
+
 
 }
 
@@ -234,7 +254,6 @@ width:20%;
 .LoginBtn {
   width: 80%;
   height: calc(52 / 16 * 1rem);
-  margin-top: 12%;
   /* top: calc(614 / 16 * 1rem); */
   left: calc(61 / 16 * 1rem);
   opacity: 1;
@@ -258,17 +277,17 @@ width:20%;
 
 
 .notAccount {
-  width: calc(270.3515930175781 / 16 * 1rem);
+  width: 17rem;
   height: calc(19.47447967529297 / 16 * 1rem);
   margin-top: calc(693 / 16 * 1rem);
-  left: calc(160 / 16 * 1rem);
+  left: 10rem;
   opacity: 1;
-  gap: calc(4.58 / 16 * 1rem);
+  gap: 2px;
   margin: auto;
 }
 
 .notAccountLft {
-  width: calc(197.67459106445312 / 16 * 1rem);
+  
   height: calc(12.601134300231934 / 16 * 1rem);
   opacity: 1;
   font-weight: 400;
@@ -277,7 +296,7 @@ width:20%;
   line-height: 100%;
   vertical-align: middle;
   /* background-color: rgba(255, 255, 255, 1); */
-  box-shadow: 0 calc(4.58 / 16 * 1rem) calc(4.58 / 16 * 1rem) 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 calc(4.58 / 16 * 1rem) calc(4.58 / 16 * 1rem) 0 rgba(0, 0, 0, 0.25);
 }
 
 
@@ -314,7 +333,7 @@ width:20%;
     @apply 
   } */
   .line2{
-    @apply w-[10%] bg-white h-0.5 mt-5 mx-2
+    @apply w-[10%] bg-white h-0.5 mt-5 
   }
 /* .SignUpDiv{
   @apply 
@@ -333,7 +352,7 @@ width:20%;
 } */
 
 .inputfield2{
-@apply h-8 rounded-xl  bg-[var(--input-bg)] border border-white focus:outline-none focus:border-[var(--main-border-color)] focus:ring-0 p-4 w-full min-w-[28.12rem]
+@apply sm:h-8 h-4 rounded-xl  bg-[var(--input-bg)] border border-white focus:outline-none focus:border-[var(--main-border-color)] focus:ring-0 p-4 w-full lg:w-full xl:min-w-[25.12rem]
 }
 .saveBtn{
   @apply mx-auto w-[10%] h-[2.4rem] mt-4 rounded-2xl text-[var(--saveBtnTxt)] bg-[var(--saveBtnbg)] flex justify-center items-center

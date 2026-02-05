@@ -127,7 +127,7 @@ signupFields.map((field)=>(
 ))
 }
 
-<div className="mt-4">
+<div className="sm:mt-4 mt-2">
  <input type="checkbox" id="terms" name="terms" required />
   <label htmlFor="terms">I agree to the terms and conditions</label>
 </div>

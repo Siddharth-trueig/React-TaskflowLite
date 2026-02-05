@@ -19,6 +19,13 @@
       "Email": "Sidd@gmail.com",
       "PhoneNumber": "1234567899",
       "Password": "123456"
+    },
+    {
+      "id": "6ca5",
+      "UserName": "NewUser",
+      "Email": "Sidd@gmail.com",
+      "PhoneNumber": "1234567899",
+      "Password": "123456"
     }
   ],
   "task": [

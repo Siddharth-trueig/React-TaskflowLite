@@ -69,10 +69,10 @@ export const HomeModal = () => {
       
       
       {/* Modal Box */}
-      <div className=" modal-box border relative border-[var(--main-border-color)] bg-[var(--left-bg-color)]">
+      <div className="modal-box  border relative border-[var(--main-border-color)] bg-[var(--left-bg-color)]">
 
         {/*  Left Section (40%) */}
-        <div className="w-[40%] ">
+        <div className="w-[40%] max-h-[80vh] max-md:hidden">
           <img
             src={img}
             alt="Taskflow"
@@ -82,22 +82,22 @@ export const HomeModal = () => {
         </div>
 
         {/*  Right Section (60%) */}
-        <div className="w-[55%] p-10 h-[100%]  text-white flex flex-col gap-[1.5vw]">
+        <div className="w-[55%] p-10 h-[100%] max-md:w-full  text-white flex flex-col  gap-[1.5vw]">
            <button
             onClick={() => {
               navigate("/");
               setLoginModal(false);
               setSignUpModal(false);
             }}
-            className="absolute top-4 right-4 z-50 rounded-md bg-black text-white w-16 h-10 flex items-center justify-center hover:bg-gray-800"
+            className="absolute top-4 right-4 z-50 rounded-md bg-black text-white md:w-16 sm:w-12 w-11 h-7 sm:h-10 flex items-center justify-center hover:bg-gray-800"
           >
             Close
           </button>
           {loginModal &&
-         <div className=" ">
-            <div className="login login-text login-custom">Login </div>
+         <div className="align-center">
+            <div className="login flex items-center justify-center login-custom ">Login </div>
 
-<div className="login-text login-text-font login-custom w-[70%]">
+<div className="md:mt-4 mt-3  login-text-font login-custom w-full">
     <span className="line"></span>
     Login With Email
       <span className="line"></span>
@@ -108,14 +108,14 @@ export const HomeModal = () => {
         }
           {signUpModal &&
 
-          <div className="ml-4">
-          <div className="w-full  flex flex-col  items-center">
+          <div className="">
+          <div className="w-full flex flex-col  items-center">
           <div className="font-semibold text-[1.5rem] leading-[140%] text-white">Sign Up</div>
 
-          <div className="flex w-full justify-center h-full">
-             <span className="line2"></span>
-           <div className="opacity-100 mt-1 font-semibold text-[1.2rem] leading-[140%]">Sign Up with email</div>
-             <span className="line2"></span>
+          <div className="sm:flex text-center w-full justify-center h-full">
+             <span className="line2 sm:mx-2"></span>
+           <div className="opacity-100 mt-1 sm:font-semibold text-[1.2rem] leading-[140%]">Sign Up with email</div>
+             <span className="line2 sm:mx-2"></span>
           </div>
             </div>
           <SignUp />

@@ -27,9 +27,9 @@ export const Input = ({
   className,
   options=[]
 }) => {
-  console.log("classname is",className);
+ 
   return (
-    <div className='mt-4'>
+    <div className='sm:mt-4 mt-2'>
       <label >{label}</label>
 { type!=="select"?
   <input
@@ -45,7 +45,7 @@ export const Input = ({
           value={value || ""}
           onChange={onChange}
           onBlur={onBlur}
-          className={className} >
+          className="w-full p-2" >
           <option value="">Select {label}</option>
 
           {options.map((opt) => (

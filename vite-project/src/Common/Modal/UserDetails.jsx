@@ -91,7 +91,7 @@ export const UserDetails = () => {
       {userDetails && (
         <div>
           <div className="overlay">
-            <div className="bg-[var(--userDetails-bg)] text-white w-[80%] h-[80%] rounded-md flex flex-col justify-center items-center">
+            <div className="bg-[var(--userDetails-bg)] text-white sm:w-auto w-[80vw] h-auto rounded-md flex flex-col justify-center items-center">
               <div>
                 <div className="ml-10">
         
