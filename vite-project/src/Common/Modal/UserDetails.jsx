@@ -91,7 +91,7 @@ export const UserDetails = () => {
       {userDetails && (
         <div>
           <div className="overlay">
-            <div className="bg-[var(--userDetails-bg)] text-white sm:w-auto w-[80vw] h-auto rounded-md flex flex-col justify-center items-center">
+            <div className="bg-userDetails-bg text-white  w-[80%] h-auto rounded-md flex flex-col justify-center items-center">
               <div>
                 <div className="ml-10">
         
@@ -103,7 +103,7 @@ export const UserDetails = () => {
                 </span>
               </div>
               <form onSubmit={handleSubmit(saveData)}>
-                <div className="grid grid-cols-2 gap-x-4 w-[80%] mx-auto justify-center">
+                <div className="grid p-4 grid-cols-2 gap-x-4 gap-y-2 sm:gap-y-0 h-auto w-auto sm:w-[80%] mx-auto justify-center">
                   {/* Left Section  */}
 
                   {/* <div className="h-full w-full">
@@ -214,7 +214,7 @@ render={({field:UserField,fieldState})=>(
 ))
                 }  
                 </div>
-                <button type="submit" className="saveBtn">
+                <button type="submit" className="saveBtn px-2 py-2">
                   {" "}
                   Save
                 </button>

@@ -69,7 +69,7 @@ export const HomeModal = () => {
       
       
       {/* Modal Box */}
-      <div className="modal-box  border relative border-[var(--main-border-color)] bg-[var(--left-bg-color)]">
+      <div className="modal-box  border relative border-main-border ">
 
         {/*  Left Section (40%) */}
         <div className="w-[40%] max-h-[80vh] max-md:hidden">
@@ -77,12 +77,12 @@ export const HomeModal = () => {
             src={img}
             alt="Taskflow"
 
-            className="h-full object-cover"
+            className="h-full object-center"
           />
         </div>
 
         {/*  Right Section (60%) */}
-        <div className="w-[55%] p-10 h-[100%] max-md:w-full  text-white flex flex-col  gap-[1.5vw]">
+        <div className="w-[55%] p-10 h-full max-md:w-full  text-white flex flex-col  gap-[1.5vw]">
            <button
             onClick={() => {
               navigate("/");
@@ -98,9 +98,9 @@ export const HomeModal = () => {
             <div className="login flex items-center justify-center login-custom ">Login </div>
 
 <div className="md:mt-4 mt-3  login-text-font login-custom w-full">
-    <span className="line"></span>
+    <span className="line mx-2"></span>
     Login With Email
-      <span className="line"></span>
+      <span className="line mx-2"></span>
 </div>
  
               <Login />

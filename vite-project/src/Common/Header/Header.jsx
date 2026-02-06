@@ -38,19 +38,19 @@ setUserDetails(true);
 <div>
 
 
-<button onClick={handleLogin} className='mr-4 bg-gray-800'>
+<button onClick={handleLogin} className='mr-4 rounded-full p-2 bg-gray-800'>
 Login 
  </button>
 
-  <button onClick={handleSignUp} className='bg-gray-800'>
+  <button onClick={handleSignUp} className='rounded-full p-2 bg-gray-800'>
 SignUp
 </button>
  </div>  }
 {
   inDashboard&&
   <div >
-    <button onClick={handleUser} className='mr-4 bg-gray-800'>User Details <i class="fa-solid fa-circle-chevron-down"></i></button>
-    <button onClick={hadleLogout} className='bg-gray-800'> <i class="fa-solid fa-circle-chevron-left"></i>Logout </button>
+    <button onClick={handleUser} className='rounded-full p-2 mr-4 w-[] bg-gray-800'>User Details <i class="fa-solid fa-circle-chevron-down"></i></button>
+    <button onClick={hadleLogout} className=' rounded-full p-2 bg-gray-800'> <i class="fa-solid fa-circle-chevron-left"></i>Logout </button>
   </div>
 }
 

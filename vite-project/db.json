@@ -26,6 +26,20 @@
       "Email": "Sidd@gmail.com",
       "PhoneNumber": "1234567899",
       "Password": "123456"
+    },
+    {
+      "id": "6c03",
+      "UserName": "newwd",
+      "Email": "Sidd@gmail.com",
+      "PhoneNumber": "1234567899",
+      "Password": "123456"
+    },
+    {
+      "id": "73f0",
+      "UserName": "newuser",
+      "Email": "jni@gmail.com",
+      "PhoneNumber": "456789876543",
+      "Password": "123456"
     }
   ],
   "task": [

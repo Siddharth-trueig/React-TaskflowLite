@@ -127,7 +127,7 @@ signupFields.map((field)=>(
 ))
 }
 
-<div className="sm:mt-4 mt-2">
+<div className="mt-4">
  <input type="checkbox" id="terms" name="terms" required />
   <label htmlFor="terms">I agree to the terms and conditions</label>
 </div>
@@ -136,15 +136,15 @@ signupFields.map((field)=>(
 name={'terms'} error={errors.terms} className={'flex inline'}/> */}
  </div>  
  <div className="flex items-center justify-center">
-<button type="submit" className="w-[60%] h-10 rounded-md mt-[3vh] mx-auto bg-[var(--signupBtn)] text-center font-semibold text-[1rem]">Signup</button>
+<button type="submit" className="flex justify-center items-center mx-auto LoginBtn md:mt-4 sm:mt-3 mt-2">Signup</button>
  </div>
 
     </form>
-<div className="notAccount w-full mt-2">
+<div className="notAccount flex justify-center w-full mt-4">
   <span className="notAccountLft">
  Already Have an Account? 
   </span>
-  <a className="notAccountRgt underline mt-2 hover:text-blue-600 hover:cursor-pointer" onClick={LoginHandler}>
+  <a className="notAccountRgt underline  hover:text-blue-600 hover:cursor-pointer" onClick={LoginHandler}>
     Login
   </a>
  

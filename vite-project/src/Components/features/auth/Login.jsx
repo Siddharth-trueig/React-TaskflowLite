@@ -174,15 +174,15 @@ render={({field:rhfField,fieldState})=>(
 
 {/* </div> */}
 
-<button type="submit" className="flex justify-center items-center mx-auto LoginBtn md:mt-4 sm:mt-3 mt-2">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+<button type="submit" className="flex justify-center items-center mx-auto LoginBtn mt-4">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
 
     </form>
 
-    <div className="sm:notAccount  mt-2">
+    <div className="sm:notAccount flex justify-center mt-6">
   <span className="notAccountLft"> Don't Have an Account </span>
-  <div className=" md:inline block">
+ 
  <a className="notAccountRgt underline  hover:text-blue-600 hover:cursor-pointer" onClick={HandleClick}>Sign Up</a>
-  </div>
+ 
 
 </div>
 
