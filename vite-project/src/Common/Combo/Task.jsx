@@ -5,11 +5,24 @@ import { TaskBoard } from '../../Components/features/tasks/TaskBoard'
 import { TaskRender } from '../../Components/features/tasks/TaskRender'
 export const Task = () => {
   return (
-    <div className='flex min-h-screen scroll-auto flex-col sm:w-auto  mt-16 justify-center items-center bg-[#200B33] text-white'>
- <TaskSearch/>        
-  <FilterPanel/>
+    <div className='flex flex-col scroll-auto w-screen h-[94vh] mt-16 justify-center items-center bg-[#200B33] text-white'>
+      <div className='flex gap-x-4 sm:mt-4 mt-10'>
+      <div>
+ <TaskSearch/>     
+      </div>
+   <div className='mt-2'>
+<FilterPanel/>
+   </div>
+  <div className='mt-6'>
   <TaskBoard />
-  <TaskRender/>
+  </div>
+
+      </div>
+
+<div className='flex justify-center items-center mt-10'>
+ <TaskRender/>
+</div>
+ 
     </div>
   )
 }

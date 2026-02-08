@@ -47,6 +47,9 @@ button:focus-visible {
   }
 }
 
+select {
+  @apply w-full border border-solid rounded-md p-1 bg-input-bg
+}
 
 @theme{
   --color-signupBtn:#420356;
@@ -68,7 +71,7 @@ button:focus-visible {
 @layer components{
 
    .app-header {
-    @apply fixed top-0 left-0 w-full h-16
+    @apply fixed top-0 left-0 w-screen h-16
            flex items-center justify-between
            px-6 z-0;
   }
@@ -262,7 +265,7 @@ line-height: 140%; */
 }
 
 .notAccount {
-  @apply w-[17rem] h-[1.3rem] mt-[43rem] left-[10rem] opacity-100 gap-0.5 m-auto
+  @apply w-full h-[1.3rem] mt-[43rem]  opacity-100 gap-0.5
 
   /* width: 17rem;
   height: calc(19.47447967529297 / 16 * 1rem);
@@ -274,7 +277,7 @@ line-height: 140%; */
 }
 
 .notAccountLft {
-  @apply h-[.8rem] opacity-100 font-normal text-[1rem] leading-[100%] text-shadow-soft
+  @apply  opacity-100 font-normal text-[1rem] leading-[100%] text-shadow-soft
 
 
   /* height: calc(12.601134300231934 / 16 * 1rem);
@@ -290,7 +293,7 @@ line-height: 140%; */
 
 
 .notAccountRgt {
-@apply w-[4.5rem] h-[.8rem] font-medium text-[1.1rem] leading-[100%] underline decoration-solid text-shadow-soft text-notAccountTxt
+@apply  font-medium text-[1.1rem] leading-[100%] underline decoration-solid text-shadow-soft text-notAccountTxt
 
 
   /* width: calc(72.90232849121094 / 16 * 1rem);
@@ -311,15 +314,21 @@ line-height: 140%; */
   }
 
   .inputfield{
-@apply h-[1.8rem] rounded-xl  bg-input-bg border border-white focus:outline-none focus:border-main-border focus:ring-0
+@apply h-[1.8rem] rounded-md  bg-input-bg border border-white focus:outline-none focus:border-main-border focus:ring-0
 }
 
 .inputfield2{
-@apply sm:h-8 h-6 rounded-xl  bg-input-bg border border-white focus:outline-none focus:border-main-border focus:ring-0 p-4 w-full lg:w-full xl:min-w-[25.12rem] 
+@apply sm:h-8 h-6 rounded-md  bg-input-bg border border-white focus:outline-none focus:border-main-border focus:ring-0 p-4 w-full lg:w-full xl:min-w-[25.12rem] 
 }
 
 .saveBtn{
-  @apply mx-auto w-[10%] h-[2.4rem] mt-4 rounded-2xl text-saveBtn bg-saveBtnBg flex justify-center items-center
+  @apply mx-auto w-[20%] h-[2.4rem] mt-4 rounded-2xl text-saveBtn bg-saveBtnBg flex justify-center items-center
+}
+.select{
+  @apply  w-full border border-solid rounded-md p-1 bg-input-bg
+}
+.mainBtn{
+  @apply p-1 h-[40px] w-full mt-4 rounded-full bg-input-bg
 }
 }
 

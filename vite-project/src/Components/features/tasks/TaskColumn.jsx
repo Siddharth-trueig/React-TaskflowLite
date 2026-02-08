@@ -1,35 +1,95 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { deleteTask, updateTask } from "../../../services/TaskService";
 import { EditTaskModal } from "./EditTaskModal";
 import {useTask} from '../../../Common/Context/TaskContext'
 import { DropArea } from "./DropArea";
-// import { useDispatch,useSelector } from "react-redux";
-// import { deleteTodo, updateTodo } from "../../Common/Redux/todoSlice";
+import {toast} from 'react-toastify'
+
 export const TaskColumn = ({
   todoStatus=[],
   inProgressStatus=[],
   doneStatus=[]}) => {
-// const dispatch=useDispatch();
+
 const{Ctasks,setCtasks,activeCard,setActiveCard}=useTask();
 
+
+const showBasicToast=(id)=>{
+  toast("🦄 Undo Delete!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      onClick:()=>{
+       handleUndo(id)
+      }
+    });
+}
+
+const timerRef=useRef({});
+const currRef=useRef({});
   // local state for edit
   const [isModalOpen, setIsModalOpen] = useState(null);
   const [selectedTask, setSelectedTask] = useState(null);
 
   /* ================= DELETE ================= */
-  const handleDelete = async (id) => {
-    try {
+  const handleDelete =  (id) => {
+    // setPendingDelete(id);
+   showBasicToast(id);
+
+   if(currRef.current[id]){
+currRef.current[id].style.display="none";
+   }
+   
+    timerRef.current[id]=setTimeout( async()=>{
+ try {
+  console.log("Inside Try Block");
       await deleteTask(id);
       // console.log(Ctasks.length)
       const remaining=Ctasks.filter((task)=>task.id!==id);
       setCtasks(remaining);
-      // console.log(Ctasks.length)
-      // alert("Task deleted (refresh to see changes)");
+      delete timerRef.current[id];
+      delete currRef.current[id];
+    
     } catch (err) {
+       if(currRef.current[id]){
+currRef.current[id].style.display="block";
+   }
       console.error("Delete failed");
     }
+
+    },4000);
+   
   };
+
+
+  const handleUndo=(id)=>{
+  
+    console.log("Inside Handle Undo ",currRef);
+
+    if(timerRef.current[id]){
+clearTimeout(timerRef.current[id]);
+delete timerRef.current[id];
+    }
+
+
+ if(currRef.current[id]){
+currRef.current[id].style.display="block";
+   }
+
+  }
+
+  //isko banaya hai memory leaks bachane ke liye
+  useEffect(()=>{
+    console.log("Inside USeEffect ",timerRef)
+ return () => {
+    Object.values(timerRef.current).forEach((timerId) => clearTimeout(timerId));
+  };
+  },[])
 
   /* ================= EDIT ================= */
   const handleEditClick = (task) => {
@@ -38,17 +98,6 @@ const{Ctasks,setCtasks,activeCard,setActiveCard}=useTask();
   };
 
 
-//     try {
-//       await updateTask({
-//         ...editingTask,
-//         title: editTitle,
-//       });
-//       setEditingTask(null);
-//       alert("Task updated (refresh to see changes)");
-//     } catch (err) {
-//       console.error("Update failed");
-//     }
-//   };
 
   const closeModal = () => {
   setIsModalOpen(false);
@@ -56,10 +105,9 @@ const{Ctasks,setCtasks,activeCard,setActiveCard}=useTask();
 };
 
 const handleSave = async(updatedData) => {
-  // const newData={selectedTask.id,updatedData}
-  // console.log(selectedTask);
+
   const {id}=selectedTask
-  // console.log("upadted data",updatedData);
+
 setCtasks((prev) =>
       prev.map((task) =>
         task.id === selectedTask.id
@@ -90,6 +138,7 @@ catch (err) {
     console.error("Update failed");
   };
 }
+
 const onDrop=async(status,position)=>{
   console.log(`${activeCard} is going to place into ${status} and at the position ${position} `)
   if(activeCard==null || activeCard===undefined) return;
@@ -143,14 +192,8 @@ setActiveCard(null);
      
       <div
         key={task.id}
-       className="bg-gray-900/50 p-5 border border-[#2C0E48] hover:border-blue-700 cursor-grab rounded-md"
-
-        // style={{
-        //   background: "#f4f4f44c",
-        //   padding: "10px",
-        //   marginBottom: "10px",
-        //   cursor:"grab"
-        // }} 
+        ref={(el)=>currRef.current[task.id]=el}
+       className="bg-gray-900/50 p-4 max-w-60 max-h-60 overflow-x-auto overflow-y-hidden border border-input-bg hover:border-blue-700 cursor-grab rounded-md"
         draggable onDragStart={()=>setActiveCard(task.id)}
         onDragEnd={()=>setActiveCard(null)}
       >
@@ -161,13 +204,12 @@ setActiveCard(null);
        <p>Status:{task.status}</p>
        <p>Due Time:{task.dueDate}</p>
         <button onClick={() => handleEditClick(task)}>Edit</button>
-        <button
+     <button
           style={{ marginLeft: "10px" }}
-          onClick={() => handleDelete(task.id)}
+          onClick={()=>handleDelete(task.id)}
         >
           Delete
-        </button>
-        {/* <button onClick={()=>dispatch(deleteTodo(task.id))}>Delete</button> */}
+        </button>  
         
       </div> 
        {<DropArea onDrop={()=>onDrop(index+1)}/>}
@@ -176,20 +218,20 @@ setActiveCard(null);
   }
   return (
     <>
-      <div className="flex gap-x-20">
-        <div>
+      <div className="flex md:flex-row justify-center items-center flex-col gap-x-10 gap-y-6 w-screen  md:gap-x-20">
+        <div className="h-[25vh] overflow-y-auto md:h-[80vh]">
           <h3>To Do</h3>
           {renderTasks(todoStatus,(position)=>onDrop("todo",position))}
           {/* <div>activeCard-{activeCard}</div> */}
         </div>
 
-        <div>
+        <div className="h-[25vh] overflow-y-auto md:h-[80vh]">
           <h3>In Progress</h3>
           {renderTasks(inProgressStatus,(position)=>onDrop("in-progress",position))}
             {/* <div>activeCard-{activeCard}</div> */}
         </div>
 
-        <div>
+        <div className="h-[25vh] overflow-y-auto md:h-[80vh]">
           <h3>Done</h3>
           {renderTasks(doneStatus,(position)=>onDrop("done",position))}
             {/* <div>activeCard-{activeCard}</div> */}

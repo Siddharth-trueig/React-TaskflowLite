@@ -127,26 +127,28 @@ signupFields.map((field)=>(
 ))
 }
 
-<div className="mt-4">
- <input type="checkbox" id="terms" name="terms" required />
-  <label htmlFor="terms">I agree to the terms and conditions</label>
+<div className="mt-4 flex  items-center">
+ <input type="checkbox" id="terms" name="terms"  required />
+  <label htmlFor="terms" className="ml-2">I agree to the terms and conditions</label>
 </div>
 
 {/* <Input label="I agree to the terms and conditions" type="checkbox" rules={{required:"field is required"}} register={register} 
 name={'terms'} error={errors.terms} className={'flex inline'}/> */}
  </div>  
  <div className="flex items-center justify-center">
-<button type="submit" className="flex justify-center items-center mx-auto LoginBtn md:mt-4 sm:mt-3 mt-2">Signup</button>
+<button type="submit" className="flex justify-center items-center rounded-md mx-auto LoginBtn md:mt-4 sm:mt-3 mt-2">Signup</button>
  </div>
 
     </form>
 <div className="notAccount flex justify-center w-full mt-4">
-  <span className="notAccountLft">
+  <span className="notAccountLft font-normal">
  Already Have an Account? 
   </span>
-  <a className="notAccountRgt underline  hover:text-blue-600 hover:cursor-pointer" onClick={LoginHandler}>
+ 
+<a className="notAccountRgt underline  hover:text-blue-600 hover:cursor-pointer" onClick={LoginHandler}>
     Login
   </a>
+  
  
 </div>
 </div>

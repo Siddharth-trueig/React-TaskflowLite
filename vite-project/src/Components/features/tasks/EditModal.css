@@ -10,13 +10,10 @@
 .modal {
   background-color: #420356;
   padding: 20px;
-  width: 400px;
+  height: auto;
   border-radius: 8px;
 }
 
-select{
-  background-color: #43035687;
-}
 .modal label {
   display: block;
   margin-top: 10px;

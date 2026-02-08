@@ -54,17 +54,20 @@ const navigate=useNavigate()
 
   return (
   <>
-    <button onClick={() => setShowModal(true)} className="bg-fuchsia-700">
+  
+
+ 
+    <button onClick={() => setShowModal(true)} className="sm:p-2 bg-gray-800 sm:rounded-full rounded-md ">
       + Add Task
     </button>
 
     {showModal && (
       <div style={overlayStyle} >
-        <div  className="bg-black ">
+        <div  className="bg-[#420356] flex flex-col p-4 items-center w-[80%] sm:w-auto">
           <h3>Add New Task</h3>
 
           <form onSubmit={handleSubmit}>
-            <span>
+            <div>
               <label htmlFor="title">Title</label>
               <input
                 id="title"
@@ -73,9 +76,9 @@ const navigate=useNavigate()
                 required
                 value={formData.title}
                 onChange={handleChange}
-                className="border border-gray-300 p-1 rounded focus:border-blue-500"
+                className="inputfield2"
               />
-            </span>
+            </div>
 
             <span>
               <label htmlFor="status">Status</label>
@@ -123,7 +126,7 @@ const navigate=useNavigate()
       name="dueDate"
       type="date"
       required
-      className="bg-amber-50 text-black"
+    className="inputfield2"
       value={formData.dueDate}
       onChange={handleChange}
       min={new Date().toISOString().split("T")[0]}
@@ -140,16 +143,16 @@ const navigate=useNavigate()
                 name="assignee"
                 value={formData.assignee}
                 onChange={handleChange}
-                  className="border border-gray-300 p-1 rounded focus:border-blue-500"
+                className="inputfield2"
               />
             </div>
 
-            <div style={{ display: "flex", gap: "2px" }}>
-              <button type="submit" disabled={loading} className="p-1 h-[40px] mt-4 rounded-full bg-[#420356]">
+            <div className="flex gap-3">
+              <button type="submit" disabled={loading} className="mainBtn">
                 {loading ? "Saving..." : "Add Task"}
               </button>
 
-              <button className="saveBtn"
+              <button className="mainBtn"
                 type="button"
                 onClick={() => setShowModal(false)}
               >
@@ -162,6 +165,7 @@ const navigate=useNavigate()
         </div>
       </div>
     )}
+     
   </>
 )
 }

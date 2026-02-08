@@ -4,7 +4,7 @@ export const FilterPanel = () => {
   const { priorityFilter, setPriorityFilter } = useTask();
 
   return (
-    <div>
+    <div >
       <h4>Filter by Priority</h4>
 
       <select className="bg-amber-900"

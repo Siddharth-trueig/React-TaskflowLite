@@ -72,7 +72,7 @@ export const HomeModal = () => {
       <div className="modal-box  border relative border-main-border ">
 
         {/*  Left Section (40%) */}
-        <div className="w-[40%] max-h-[80vh] max-md:hidden">
+        <div className="w-[40%]  max-md:hidden">
           <img
             src={img}
             alt="Taskflow"
@@ -89,7 +89,7 @@ export const HomeModal = () => {
               setLoginModal(false);
               setSignUpModal(false);
             }}
-            className="absolute top-4 right-4 z-50 rounded-md bg-black text-white md:w-16 sm:w-12 w-11 h-7 sm:h-10 flex items-center justify-center hover:bg-gray-800"
+            className="absolute top-4 right-4 z-50 rounded-md bg-black text-white md:w-16 sm:w-12 w-11 px-8 sm:h-10 flex items-center justify-center hover:bg-gray-800"
           >
             Close
           </button>
@@ -97,10 +97,11 @@ export const HomeModal = () => {
          <div className="align-center">
             <div className="login flex items-center justify-center login-custom ">Login </div>
 
-<div className="md:mt-4 mt-3  login-text-font login-custom w-full">
-    <span className="line mx-2"></span>
-    Login With Email
-      <span className="line mx-2"></span>
+<div className="md:mt-4 mt-3 login-custom flex justify-center items-center max-sm:hidden w-full">
+    <span className=" w-[20%] mr-[0.8rem] border border-white"></span>
+    <span className="login-text-font "> Login With Email  </span>
+   
+      <span className="  w-[20%]  ml-[0.8rem] border border-t-white "></span>
 </div>
  
               <Login />
@@ -112,11 +113,17 @@ export const HomeModal = () => {
           <div className="w-full flex flex-col  items-center">
           <div className="font-semibold text-[1.5rem] leading-[140%] text-white">Sign Up</div>
 
-          <div className="sm:flex text-center w-full justify-center h-full">
+          {/* <div className="sm:flex text-center w-full justify-center h-full">
              <span className="line2 sm:mx-2"></span>
            <div className="opacity-100 mt-1 sm:font-semibold text-[1.2rem] leading-[140%]">Sign Up with email</div>
              <span className="line2 sm:mx-2"></span>
-          </div>
+          </div> */}
+          <div className="md:mt-4 mt-3 login-custom flex justify-center  max-sm:hidden items-center w-full">
+    <span className=" w-[20%] mr-[0.8rem] border border-white"></span>
+    <span className="login-text-font"> Sign Up With Email  </span>
+   
+      <span className="  w-[20%]  ml-[0.8rem] border border-t-white "></span>
+</div>
             </div>
           <SignUp />
          

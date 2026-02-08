@@ -10,6 +10,7 @@ import {Header} from './Common/Header/Header'
 import {LogoutModal} from './Common/Modal/LogoutModal'
 import {UserDetails} from './Common/Modal/UserDetails'
 import {AppRoutes2} from './Common/routes/AppRoutes2'
+import { ToastContainer,toast } from 'react-toastify'
 function App() {
 
 
@@ -17,6 +18,7 @@ function App() {
     <>
     <ModalProvider>
       <AppRoutes2/>
+      <ToastContainer/>
  {/* <AppRoutes/> */}
  {/* <Header/>
  <HomeModal/>

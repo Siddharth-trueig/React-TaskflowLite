@@ -48,9 +48,10 @@ SignUp
  </div>  }
 {
   inDashboard&&
-  <div >
-    <button onClick={handleUser} className='rounded-full p-2 mr-4 w-[] bg-gray-800'>User Details <i class="fa-solid fa-circle-chevron-down"></i></button>
-    <button onClick={hadleLogout} className=' rounded-full p-2 bg-gray-800'> <i class="fa-solid fa-circle-chevron-left"></i>Logout </button>
+  <div className='flex'>
+    <button onClick={handleUser} className='rounded-md p-2 mr-4  bg-gray-800'> <span className='max-sm:hidden'>    <i class="fa-solid fa-circle-chevron-down"></i></span>User Details </button> 
+
+    <button onClick={hadleLogout} className=' rounded-md  p-2 bg-gray-800'><span className='max-sm:hidden '><i class="fa-solid fa-circle-chevron-left"></i></span> Logout </button>
   </div>
 }
 

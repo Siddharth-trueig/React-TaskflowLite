@@ -28,36 +28,36 @@ export const EditTaskModal = ({ task, onClose, onSave }) => {
   };
 
   return (
-    <div className="modal-backdrop">
+    <div className="modal-backdrop ">
       <div className="modal">
         <h2>Edit Task</h2>
 
         <label>Title</label>
-        <input name="title" value={formData.title} required onChange={handleChange} />
+        <input name="title" value={formData.title} className="inputfield2" required onChange={handleChange} />
 
         <label>Status</label>
-        <select name="status" value={formData.status} required onChange={handleChange}>
-          <option value="todo">To Do</option>
+        <select name="status" value={formData.status} className="select " required onChange={handleChange}>
+          <option value="todo" >To Do</option>
           <option value="in-progress">In Progress</option>
           <option value="done">Done</option>
         </select>
 
         <label>Priority</label>
-        <select name="priority" value={formData.priority} required onChange={handleChange}>
+        <select name="priority" value={formData.priority} className="select " required onChange={handleChange}>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
 
         <label>Due Date</label>
-        <input type="date" name="dueDate" value={formData.dueDate} required onChange={handleChange} />
+        <input type="date" name="dueDate" value={formData.dueDate} className="inputfield2" required onChange={handleChange} />
 
         <label>Assignee</label>
-        <input name="assignee" value={formData.assignee} required onChange={handleChange} />
+        <input name="assignee" value={formData.assignee} className="inputfield2" required onChange={handleChange} />
 
         <div className="actions">
-          <button onClick={handleSubmit}>Save</button>
-          <button onClick={onClose}>Cancel</button>
+          <button onClick={handleSubmit} className="mainBtn">Save</button>
+          <button onClick={onClose} className="mainBtn">Cancel</button>
         </div>
       </div>
     </div>

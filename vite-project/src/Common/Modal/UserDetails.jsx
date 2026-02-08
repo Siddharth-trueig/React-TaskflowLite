@@ -214,13 +214,17 @@ render={({field:UserField,fieldState})=>(
 ))
                 }  
                 </div>
-                <button type="submit" className="saveBtn px-2 py-2">
+                <div className="flex">
+  <button type="submit" className="saveBtn px-2 py-2">
                   {" "}
                   Save
                 </button>
+                   <button onClick={() => setUserDetails(false)} className="saveBtn">Close</button>
+                </div>
+              
               </form>
 
-              <button onClick={() => setUserDetails(false)}>Close</button>
+           
             </div>
           </div>
         </div>
