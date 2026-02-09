@@ -54,7 +54,7 @@
     {
       "id": "7fbe",
       "title": "new",
-      "status": "done",
+      "status": "todo",
       "priority": "medium",
       "dueDate": "2026-02-26",
       "assignee": "afw"

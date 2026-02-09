@@ -8,7 +8,7 @@
 
   export const Task = () => {
     return (
-      <div className='flex flex-col scroll-auto w-screen h-[94vh] mt-16 justify-center items-center bg-[#200B33] text-white'>
+      <div className='flex flex-col scroll-auto w-screen h-[94vh] mt-16 items-center bg-[#200B33] text-white'>
         <div className='flex gap-x-4 sm:mt-4 mt-10'>
         <div>
   <TaskSearch/>     
