@@ -3,6 +3,7 @@ import { TaskSearch } from '../../Components/features/tasks/TaskSearch'
 import { FilterPanel } from '../../Components/features/tasks/FilterPanel'
 import { TaskBoard } from '../../Components/features/tasks/TaskBoard'
 import { TaskRender } from '../../Components/features/tasks/TaskRender'
+import { MultiTask } from '../../Components/features/tasks/MultiTask'
 export const Task = () => {
   return (
     <div className='flex flex-col scroll-auto w-screen h-[94vh] mt-16 justify-center items-center bg-[#200B33] text-white'>
@@ -16,7 +17,9 @@ export const Task = () => {
   <div className='mt-6'>
   <TaskBoard />
   </div>
-
+<div>
+  <MultiTask/>
+</div>
       </div>
 
 <div className='flex justify-center items-center mt-10'>

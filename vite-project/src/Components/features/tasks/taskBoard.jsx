@@ -4,7 +4,7 @@ import { useTask } from "../../../Common/Context/TaskContext";
 import { useNavigate } from "react-router-dom";
 // import { addTodo } from "../../Common/Redux/todoSlice";
 // import {useSelector,useDispatch} from 'react-redux'
-
+import { retryToast } from "../../../Common/Toast/Toast";
 export const TaskBoard = () => {
   // const dispatch=useDispatch();
   
@@ -31,23 +31,50 @@ const navigate=useNavigate()
     });
   };
 
+const submitTask = async () => {
+  const newTask = await createTask(formData);
+  if (!newTask) return;
+
+  setTasks((prev) => [...prev, newTask]);
+  setCtasks((prev) => [...prev, newTask]);
+
+  setFormData({
+    title: "",
+    status: "todo",
+    priority: "medium",
+    dueDate: "",
+    assignee: "",
+  });
+
+  setShowModal(false);
+};
+
+
   const handleSubmit = async (e) => {
+    console.log("event value is ",e);
     e.preventDefault();
+try{
+    const newTask = await submitTask();
+    // if (!newTask) return;
 
-    const newTask = await createTask(formData);
-    if (!newTask) return;
+    // setTasks([...tasks, newTask]);
+    // setCtasks((prevTasks) => [...prevTasks, newTask]);
 
-    setTasks([...tasks, newTask]);
-    setCtasks((prevTasks) => [...prevTasks, newTask]);
+    //   setFormData({
+    //   title: "",
+    //   status: "todo",
+    //   priority: "medium",
+    //   dueDate: "",
+    //   assignee: "",
+    // });
+}
+catch(error){
+  console.log("catch ke andar hu");
+retryToast({message:"Error Occured While Adding task", retry:submitTask}) 
+}
     // dispatch(addTodo(formData));
 
-    setFormData({
-      title: "",
-      status: "todo",
-      priority: "medium",
-      dueDate: "",
-      assignee: "",
-    });
+  
     // console.log("Ctasks",Ctasks);
     setShowModal(false);
   };

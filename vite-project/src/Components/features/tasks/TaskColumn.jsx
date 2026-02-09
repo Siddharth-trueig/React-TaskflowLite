@@ -11,7 +11,7 @@ export const TaskColumn = ({
   inProgressStatus=[],
   doneStatus=[]}) => {
 
-const{Ctasks,setCtasks,activeCard,setActiveCard}=useTask();
+const{Ctasks,setCtasks,activeCard,setActiveCard,allChecks,setAllChecks}=useTask();
 
 
 const showBasicToast=(id)=>{
@@ -83,8 +83,14 @@ currRef.current[id].style.display="block";
 
   }
 
+//checkbox ko uncheck krne ke liye on reload 
+
+
+
   //isko banaya hai memory leaks bachane ke liye
   useEffect(()=>{
+    
+
     console.log("Inside USeEffect ",timerRef)
  return () => {
     Object.values(timerRef.current).forEach((timerId) => clearTimeout(timerId));
@@ -104,6 +110,26 @@ currRef.current[id].style.display="block";
   setSelectedTask(null);
 };
 
+
+  //  const handleCheck=(id)=>{
+  //   setAllChecks(prev=>[...prev,id]);
+  //  }
+
+   function checkBoxHandler(e){
+let isChecked=e.target.checked;
+let id=e.target.value;
+console.log("value of allchecks ",allChecks);
+if(isChecked){
+  setAllChecks([...allChecks,id])
+}
+else{
+  setAllChecks((prevData)=>{
+    return prevData.filter((taskid)=>{
+     return taskid!==id;
+    })
+})
+}
+   }
 const handleSave = async(updatedData) => {
 
   const {id}=selectedTask
@@ -197,8 +223,14 @@ setActiveCard(null);
         draggable onDragStart={()=>setActiveCard(task.id)}
         onDragEnd={()=>setActiveCard(null)}
       >
-
-        <p><strong>{task.title}</strong></p>
+        <div className="flex justify-between">
+        <span><strong>{task.title}</strong></span>
+        <span>
+        <input type="checkbox" 
+        checked={allChecks.includes(String(task.id))}
+        value={task.id} onChange={checkBoxHandler} />
+         </span>
+        </div>
         <p>Priority: {task.priority}</p>
         <p>Assignee: {task.assignee}</p>
        <p>Status:{task.status}</p>
