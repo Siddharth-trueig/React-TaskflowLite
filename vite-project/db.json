@@ -44,33 +44,17 @@
   ],
   "task": [
     {
-      "id": "d7ba",
-      "title": "Shaam Ka kaam ",
-      "status": "in-progress",
-      "priority": "medium",
-      "dueDate": "2026-02-21",
-      "assignee": "fa"
-    },
-    {
-      "id": "35db",
-      "title": "HEllo",
-      "status": "todo",
-      "priority": "medium",
-      "dueDate": "2026-02-11",
-      "assignee": "fagea"
-    },
-    {
       "id": "5d58",
       "title": "new",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "medium",
-      "dueDate": "2026-02-18",
-      "assignee": "gae"
+      "dueDate": "2026-02-13",
+      "assignee": "gyani ji"
     },
     {
       "id": "7fbe",
       "title": "new",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "dueDate": "2026-02-26",
       "assignee": "afw"
@@ -78,7 +62,7 @@
     {
       "id": "37b9",
       "title": "nkfla",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "dueDate": "2026-02-18",
       "assignee": "faw"

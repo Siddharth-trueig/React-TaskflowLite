@@ -16,8 +16,10 @@ export const deleteTask = async (id) => {
   try {
     const res = await axios.delete(`http://localhost:3000/task/${id}`);
     console.log(res.status);
+    return res;
   } catch (error) {
       toast.error(`Error Occured While deleting task ${error}`);
+      throw error;
   }
 };
 
@@ -42,6 +44,7 @@ export const updateTask = async ({
   }
   catch(error){
   toast.error(`Error Occured While Updating task ${error}`);
+  throw error;
   }
  
 };

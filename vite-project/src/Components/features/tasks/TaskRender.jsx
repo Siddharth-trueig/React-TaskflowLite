@@ -137,10 +137,10 @@ export function TaskRender(){
     const[todoStatus,setTodoStatus]=useState([]);
     const[inProgressStatus,setInProgressStatus]=useState([]);
     const[doneStatus,setDoneStatus]=useState([]);
-
-
+    const [loading,setLoading]=useState(false);
  useEffect(() => {
     // if (!filteredTasks.length) return;
+    setLoading(true);
  if (!Ctasks.length) return;
     const todo = [];
     const inProgress = [];
@@ -165,11 +165,12 @@ console.log("tasks",Ctasks);
     setTodoStatus(todo);
     setInProgressStatus(inProgress);
     setDoneStatus(done);
+    setLoading(false);
   }, [filteredTasks]);
 
 
 return(
-<TaskColumn todoStatus={todoStatus} inProgressStatus={inProgressStatus} doneStatus={doneStatus}/>
+<TaskColumn todoStatus={todoStatus} inProgressStatus={inProgressStatus} doneStatus={doneStatus} loading={loading} />
 )
 
 }
