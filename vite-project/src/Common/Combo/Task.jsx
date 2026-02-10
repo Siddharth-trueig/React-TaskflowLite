@@ -1,9 +1,9 @@
   import React from 'react'
-  import { TaskSearch } from '../../Components/features/tasks/TaskSearch'
-  import { FilterPanel } from '../../Components/features/tasks/FilterPanel'
-  import { TaskBoard } from '../../Components/features/tasks/TaskBoard'
-  import { TaskRender } from '../../Components/features/tasks/TaskRender'
-  import { MultiTask } from '../../Components/features/tasks/MultiTask'
+  import { TaskSearch } from '../../Components/features/tasks/TaskSearch/index'
+  import { FilterPanel } from '../../Components/features/tasks/FilterPanel/Components/index'
+  import { TaskBoard } from "../../Components/features/tasks/TaskBoard/Components/index"
+  import { TaskRender } from '../../Components/features/tasks/TaskRender/index'
+  import { MultiTask } from '../../Components/features/tasks/MultiTask/Components/index'
   import { SkeletonTheme } from 'react-loading-skeleton';
 
   export const Task = () => {

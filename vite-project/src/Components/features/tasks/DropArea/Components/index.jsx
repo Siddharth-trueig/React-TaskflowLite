@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './DropArea.css'
+import './index.css'
 export const DropArea = ({onDrop}) => {
     const [showDrop,setShowDrop]=useState(false);
   return (

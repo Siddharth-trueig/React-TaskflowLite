@@ -20,27 +20,7 @@ const Login = () => {
 
  
   const onSubmit = async (data) => {
-//     console.log("submitted");
-//     login();
-// console.log("submitted");
 
-
-//  const userData = JSON.parse(localStorage.getItem(data.UserName));
-  //     const userData = JSON.parse(localStorage.getItem(data.Token));
-
-  // if (!userData) {
-
-  //   console.log("User not found");
-  //   alert("User not found");
-  //   return;
-  // }
-  // if (userData.password !== data.Password) {
-  //   console.log("Invalid password");
-  //    alert("Invalid Password");
-  //   return;
-  // }
-
-// successful login
 try {
     //  Call backend
     const users = await loginUser(data.UserName);
@@ -81,78 +61,7 @@ setSignUpModal(true);
 
    
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* <input {...register("email", { required: true })} placeholder="Email" />
-      <input type="password" {...register("password", { required: true })} /> */}
-
-      {/* <input
-  type="email"
-  placeholder="Email"
-  {...register("email", {
-    required: "Email is required",
-    pattern: {
-      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message: "Enter a valid email address",
-    },
-    minLength: {
-      value: 5,
-      message: "Email must be at least 5 characters",
-    },
-    maxLength: {
-      value: 50,
-      message: "Email must not exceed 50 characters",
-    },
-  })}
-/> */}
-
-{/* <input
-  type="password"
-  placeholder="Password"
-  {...register("password", {
-    required: "Password is required",
-    minLength: {
-      value: 6,
-      message: "Password must be at least 6 characters",
-    },
-    maxLength: {
-      value: 20,
-      message: "Password must not exceed 20 characters",
-    },
-  })}
-/> */}
-
-{/* //old Way we used register here  */}
-{/* <Input label="UserName" type='text' 
-rules={ {required: "Enter a valid first Name",
    
-    minLength: {
-      value: 3,
-      message: "Name must be at least 3 characters",
-    },
-    maxLength: {
-      value: 50,
-      message: "Name must not exceed 50 characters",
-    },
-
-} }   
-register={register} name={'UserName'} error={errors.UserName} className='inputfield2'/>
-
-
-<Input label="Password" type='password' 
- rules={{
-    required:"Enter a Valid FirstName",
-    minLength:{
-        value:3,
-        message:"Min Len Must be 3 characters"
-    },
-    maxLength:{
-        value:50,
-        message:"Max Len Must be inside 50"
-    }
-}}
-register={register} name={'Password'} error={errors.Password} className='inputfield2 '/> */}
-
-{/* lets try with new way using controller  */}
-
 {
   loginFields.map((field)=>(
 <Controller key={field.name} name={field.name} control={control} rules={field.rules}

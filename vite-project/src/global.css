@@ -65,6 +65,7 @@ select {
     --color-left-bg:#200B33;
     --color-overlaybg:#000000;
     --font-poppins:"Poppins";
+    --border-columnhead:linear-gradient(90deg, #F2C21B 0%, #C16B08 100%);
 }
 
 
@@ -330,7 +331,51 @@ line-height: 140%; */
 .mainBtn{
   @apply p-1 h-[40px] w-full mt-4 rounded-full bg-input-bg
 }
+
+/* .columnhead {
+  @apply w-[18rem] h-[4rem] rounded-[20px] border-2 border-transparent;
+  background:
+    #420356 padding-box, 
+    linear-gradient(90deg, #F2C21B 0%, #C16B08 100%) border-box;
+} */
+.columnhead {
+  width: 18rem;
+  height: 4rem;
+  border-radius: 20px;
+  border: 2px solid transparent;
+
+  background:
+    linear-gradient(#420356, #420356) padding-box,
+    linear-gradient(90deg, #F2C21B 0%, #C16B08 100%) border-box;
 }
+
+.columnheadTxt{
+  @apply  h-[2rem] text-[1.8rem] 
+}
+
+.column{
+ @apply w-[19.5rem] h-[45.5rem] top-[2rem] left-[2.2rem]
+}
+/* 
+.columnMain{
+  @apply w-[23.8rem] h-[47.9rem] rounded-[20px] top-[3.8rem] left-[7.8rem]
+  width: 
+height: 767;
+border-radius: 20px;
+angle: 0 deg;
+opacity: 1;
+top: 60px;
+left: 115px;
+width: 381;
+height: 767;
+border-radius: 20px;
+angle: 0 deg;
+opacity: 1;
+top: 60px;
+left: 115px;
+
+}*/
+} 
 
 
 

@@ -1,89 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useCreateTask } from "../../../Common/hooks/useCreateTask";
-import { useTask } from "../../../Common/Context/TaskContext";
-import { useNavigate } from "react-router-dom";
-// import { addTodo } from "../../Common/Redux/todoSlice";
-// import {useSelector,useDispatch} from 'react-redux'
-import { retryToast } from "../../../Common/Toast/Toast";
-export const TaskBoard = () => {
-  // const dispatch=useDispatch();
-  
-  const { createTask, loading, error } = useCreateTask();
-  const [showModal, setShowModal] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
-  const { Ctasks, setCtasks } = useTask();
-  const [formData, setFormData] = useState({
-    title: "",
-    status: "todo",
-    priority: "medium",
-    dueDate: "",
-    assignee: "",
-  });
+import React from 'react'
 
-const navigate=useNavigate()
-  const [tasks, setTasks] = useState([]);
-
-  
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-const submitTask = async () => {
-  const newTask = await createTask(formData);
-  if (!newTask) return;
-
-  setTasks((prev) => [...prev, newTask]);
-  setCtasks((prev) => [...prev, newTask]);
-
-  setFormData({
-    title: "",
-    status: "todo",
-    priority: "medium",
-    dueDate: "",
-    assignee: "",
-  });
-
-  setShowModal(false);
-};
-
-
-  const handleSubmit = async (e) => {
-    console.log("event value is ",e);
-    e.preventDefault();
-try{
-    const newTask = await submitTask();
-    // if (!newTask) return;
-
-    // setTasks([...tasks, newTask]);
-    // setCtasks((prevTasks) => [...prevTasks, newTask]);
-
-    //   setFormData({
-    //   title: "",
-    //   status: "todo",
-    //   priority: "medium",
-    //   dueDate: "",
-    //   assignee: "",
-    // });
-}
-catch(error){
-  console.log("catch ke andar hu");
-retryToast({message:"Error Occured While Adding task", retry:submitTask}) 
-}
-    // dispatch(addTodo(formData));
-
-  
-    // console.log("Ctasks",Ctasks);
-    setShowModal(false);
-  };
-
+export const TaskBoard2 = ({createTask, loading, error,showModal, setShowModal,isAdded, setIsAdded, Ctasks, setCtasks,formData, setFormData,handleChange,handleSubmit}) => {
   return (
-  <>
+    <>
   
-
- 
     <button onClick={() => setShowModal(true)} className="sm:p-2 bg-gray-800 sm:rounded-full rounded-md ">
       + Add Task
     </button>
@@ -136,15 +56,6 @@ retryToast({message:"Error Occured While Adding task", retry:submitTask})
               </select>
             </span>
 
-            {/* <div>
-              <label htmlFor="dueDate">Due Date</label>
-              <input
-                type="date"
-                name="dueDate"
-                value={formData.dueDate}
-                onChange={handleChange}
-              />
-            </div> */}
 
              <div>
     <label htmlFor="dueDate">Due Date</label>
@@ -194,9 +105,9 @@ retryToast({message:"Error Occured While Adding task", retry:submitTask})
     )}
      
   </>
-)
+  )
 }
-// TaskBoard component code above...
+
 
 const overlayStyle = {
   position: "fixed",
@@ -211,9 +122,3 @@ const overlayStyle = {
   zIndex: 1000,
 };
 
-// const modalStyle = {
-//   background: "#d8ce0fd0",
-//   padding: "20px",
-//   borderRadius: "8px",
-//   width: "400px",
-// };

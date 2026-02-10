@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
 import './EditModal.css'
-export const EditTaskModal = ({ task, onClose, onSave }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    status: "",
-    priority: "",
-    dueDate: "",
-    assignee: "",
-  });
+export const EditTaskModal2 = ({ formData,handleChange,handleSubmit,onClose }) => {
+  // const [formData, setFormData] = useState({
+  //   title: "",
+  //   status: "",
+  //   priority: "",
+  //   dueDate: "",
+  //   assignee: "",
+  // });
 
-  useEffect(() => {
-    if (task) {
-      const { id, ...rest } = task; // remove id
-      setFormData(rest);
-    }
-  }, [task]);
+  // useEffect(() => {
+  //   if (task) {
+  //     const { id, ...rest } = task; // remove id
+  //     setFormData(rest);
+  //   }
+  // }, [task]);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const handleSubmit = () => {
-    onSave(formData);
-  };
+  // const handleSubmit = () => {
+  //   onSave(formData);
+  // };
 
   return (
     <div className="modal-backdrop ">

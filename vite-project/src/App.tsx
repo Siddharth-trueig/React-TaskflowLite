@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Login from './Components/features/auth/Login'
 import './global.css'
+import ErrorBoundary from './Common/ErrorBoundary/ErrorBoundary.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import {AuthProvider} from  './Common/Context/AuthContext'
 import AppRoutes from './Common/routes/AppRoutes'
@@ -16,6 +17,9 @@ function App() {
 
   return (
     <>
+    <ErrorBoundary>
+
+    
     <ModalProvider>
       <AppRoutes2/>
       <ToastContainer/>
@@ -26,7 +30,7 @@ function App() {
  <UserDetails/> */}
  </ModalProvider>
    
- 
+ </ErrorBoundary>
     </>
   )
 }
