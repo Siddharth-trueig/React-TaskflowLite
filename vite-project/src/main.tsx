@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Login from './Components/features/auth/Login'
+
 import './global.css'
 import {AuthProvider} from  './Common/Context/AuthContext'
 import { BrowserRouter } from 'react-router-dom'
@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
      <AuthProvider>
     <Provider store={store}>
       <BrowserRouter>
-  {/* <Login/> */}
+
   <App/>
   </BrowserRouter>
    </Provider>

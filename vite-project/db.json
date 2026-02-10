@@ -40,6 +40,14 @@
       "Email": "jni@gmail.com",
       "PhoneNumber": "456789876543",
       "Password": "123456"
+    },
+    {
+      "id": "0363",
+      "UserName": "Raaz Singh",
+      "Email": "Raaz@123.com",
+      "PhoneNumber": "12345676",
+      "Password": "123456",
+      "gender": "male"
     }
   ],
   "task": [

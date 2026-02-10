@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "../../Components/features/auth/Login"
+// import Login from "../../Components/features/auth/Login/Components/Login"
 // import {TaskBoard} from "../../Components/features/tasks/TaskBoard";
 import ProtectedRoute from "../../Components/Protect/ProtectedRoute";
 import { Navigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { TaskColumn } from "../../Components/features/tasks/TaskColumn/Component
 import { TaskProvider } from "../Context/TaskContext";
 // import { TaskSearch } from "../../Components/features/tasks/TaskSearch";
 // import { FilterPanel } from "../../Components/features/tasks/FilterPanel";
-import { Logout } from "../../Components/features/auth/Logout";
+// import { Logout } from "../../Components/features/auth/Logout";
 import { Home } from "../HomePage/Home";
 import { HomeModal } from "../Modal/HomeModal";
 import { Header } from "../Header/Header";
@@ -28,7 +28,6 @@ export const AppRoutes2 = () => {
       path="/dashboard"
        element={
         <ProtectedRoute>
-          {/* <Logout/> */}
           <LogoutModal/>
           <UserDetails/>
 <TaskProvider>

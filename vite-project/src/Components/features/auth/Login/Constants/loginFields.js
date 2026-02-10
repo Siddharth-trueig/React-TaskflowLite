@@ -1,4 +1,4 @@
-// loginFields.js
+
 export const loginFields = [
   {
     name: "UserName",

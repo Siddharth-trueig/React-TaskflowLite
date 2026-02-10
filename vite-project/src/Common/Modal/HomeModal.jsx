@@ -48,8 +48,8 @@
 import React from "react";
 import img from "../../assets/img.png";
 import { useModal } from "../Context/ModalContext";
-import Login from "../../Components/features/auth/Login";
-import SignUp from "../../Components/features/auth/Signup";
+import { Login } from "../../Components/features/auth/Login/Components/index";
+import { SignUp } from "../../Components/features/auth/Signup/Components/index";
 import { useNavigate } from "react-router-dom";
 
 export const HomeModal = () => {
