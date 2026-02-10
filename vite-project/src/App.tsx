@@ -17,12 +17,11 @@ function App() {
 
   return (
     <>
+    <ToastContainer/>
     <ErrorBoundary>
-
-    
     <ModalProvider>
       <AppRoutes2/>
-      <ToastContainer/>
+      
  {/* <AppRoutes/> */}
  {/* <Header/>
  <HomeModal/>

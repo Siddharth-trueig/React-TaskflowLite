@@ -4,7 +4,8 @@ import { DropArea } from "../../DropArea/Components/index";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import Edit from "../../../../../assets/Edit.png" 
+import Delete from "../../../../../assets/Delete.png" 
 export const TaskColumn2 = ({
   hastask,
   isCollapsed,
@@ -55,7 +56,7 @@ export const TaskColumn2 = ({
         <div
           key={task.id}
           ref={(el) => (currRef.current[task.id] = el)}
-          className="bg-gray-900/50 p-4 w-full max-h-60 overflow-x-auto overflow-y-hidden border border-input-bg hover:border-blue-700 cursor-grab rounded-md"
+          className="bg-gray-900/50 boxLayout p-4 w-full max-h-60 overflow-x-auto overflow-y-hidden border border-input-bg hover:border-blue-700 cursor-grab rounded-md"
           draggable
           onDragStart={() => setActiveCard(task.id)}
           onDragEnd={() => setActiveCard(null)}
@@ -77,13 +78,19 @@ export const TaskColumn2 = ({
           <p>Assignee: {task.assignee} </p>
           <p>Status:{task.status} </p>
           <p>Due Time:{task.dueDate} </p>
-          <button onClick={() => handleEditClick(task)}>Edit</button>
+          <div className="flex justify-end mt-3">
+ <button onClick={() => handleEditClick(task)}>
+
+            <img src={Edit}/>
+          </button>
           <button
             style={{ marginLeft: "10px" }}
             onClick={() => handleDelete(task.id)}
           >
-            Delete
+           <img src={Delete}/>
           </button>
+          </div>
+         
         </div>
         {<DropArea onDrop={() => onDrop(index + 1)} />}
       </React.Fragment>
@@ -92,15 +99,15 @@ export const TaskColumn2 = ({
 
   return (
     <>
-      <div className="flex sm:flex-row items-center sm:items-start sm:justify-center flex-col gap-x-10 gap-y-6 w-screen  md:gap-x-20">
+      <div className="flex sm:flex-row items-center sm:items-start sm:justify-center flex-col gap-x-10 gap-y-5 w-screen  md:gap-x-20">
         <div
-          className={` overflow-hidden bg-[#371650] w-auto ${isCollapsed("todo") ? "h-[5vh]" : `${hastask(todoStatus) ? "sm:h-[80vh] h-[25vh] overflow-y-auto" : "h-auto "}`} `}
+          className={`p-6 rounded-[20px] overflow-hidden bg-[#371650] w-auto ${isCollapsed("todo") ? "h-[15vh]" : `${hastask(todoStatus) ? "sm:h-[70vh] h-[30vh] overflow-y-auto" : "h-[15vh] "}`} `}
         >
-          <div className="flex justify-center items-center columnhead">
-            <h3 className="columnheadTxt">To Do</h3>
-            <button onClick={() => handleCollapse("todo")} className="mt-4">
-              {isCollapsed("todo") ? "▶️" : "🔽"}
-            </button>
+          <div className="flex justify-center items-center xl:w-[18rem] w-[12rem] columnhead">
+           
+            <div onClick={() => handleCollapse("todo")} className="cursor-pointer" >
+               <h3 className="columnheadTxt">To Do</h3>
+            </div>
           </div>
 
           {loading
@@ -109,13 +116,14 @@ export const TaskColumn2 = ({
         </div>
 
         <div
-          className={` overflow-hidden bg-[#371650] w-auto ${isCollapsed("inProgress") ? "h-[5vh]" : `${hastask(inProgressStatus) ? " sm:h-[80vh] h-[25vh] overflow-y-auto" : "h-auto "}`}`}
+          className={`p-6 rounded-[20px]  overflow-hidden bg-[#371650] w-auto ${isCollapsed("inProgress") ? "h-[15vh]" : `${hastask(inProgressStatus) ? " sm:h-[70vh] h-[30vh]  overflow-y-auto" : "h-[15vh] "}`}`}
         >
-          <div className="flex justify-center columnhead">
-            <h3 className="columnheadTxt">In Progress</h3>
-            <button onClick={() => handleCollapse("inProgress")}>
-              {isCollapsed("inProgress") ? "▶️" : "🔽"}
-            </button>
+          <div className="flex justify-center items-center xl:w-[18rem] w-[12rem] columnhead">
+          
+            <div onClick={() => handleCollapse("inProgress")} className="cursor-pointer" >
+              {/* {isCollapsed("inProgress") ? "▶️" : "🔽"} */}
+                <h3 className="columnheadTxt">In Progress</h3>
+            </div>
           </div>
           {loading
             ? renderSkeletons(2)
@@ -125,13 +133,14 @@ export const TaskColumn2 = ({
         </div>
 
         <div
-          className={`overflow-hidden bg-[#371650]  w-auto ${isCollapsed("done") ? "h-[5vh]" : `${hastask(doneStatus) ? "sm:h-[80vh] h-[25vh] overflow-y-auto" : "h-auto "}`}`}
+          className={` p-6 rounded-[20px] overflow-hidden bg-[#371650]  w-auto ${isCollapsed("done") ? "h-[15vh]" : `${hastask(doneStatus) ? "sm:h-[70vh] h-[30vh] overflow-y-auto" : "h-[15vh] "}`}`}
         >
-          <div className="flex  justify-center columnhead">
-            <h3 className="columnheadTxt">Done</h3>
-            <button onClick={() => handleCollapse("done")}>
-              {isCollapsed("done") ? "▶️" : "🔽"}
-            </button>
+          <div className="flex items-center justify-center xl:w-[18rem] w-[12rem] columnhead">
+         
+            <div onClick={() => handleCollapse("done")} className="cursor-pointer">
+              {/* {isCollapsed("done") ? "▶️" : "🔽"} */}
+                 <h3 className="columnheadTxt">Done</h3>
+            </div>
           </div>
           {loading
             ? renderSkeletons(2)

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "../../Components/features/auth/Login/Components/Login"
 // import {TaskBoard} from "../../Components/features/tasks/TaskBoard";
-import ProtectedRoute from "../../Components/Protect/ProtectedRoute";
+import ProtectedRoute from "../../Components/Protect/Protected";
 import { Navigate } from "react-router-dom";
 // import {TaskRender} from "../../Components/features/tasks/TaskRender";
 
